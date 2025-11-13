@@ -1,5 +1,5 @@
 ## DSL-Transpiler-for-PennyLane
-A Python-based Domain-Specific Language (DSL) for quantum computing that simplifies quantum circuit design with an intuitive, declarative syntax. Built on PennyLane, it provides high-level abstractions for quantum operations, reusable circuit blocks, and visualisation tools.
+A Python-based Domain-Specific Language (DSL) for quantum computing that simplifies quantum circuit design with an intuitive, declarative syntax. Built on PennyLane, it provides high-level abstractions for quantum operations, reusable circuit blocks, and visualisation tools. This was developed as a part of my internship experience with the Institue of Applied Artificial Intelligence & Robotics (IAAIR).
 
 ## Features
 
@@ -16,7 +16,6 @@ quantum-dsl/
 ├── .gitignore
 ├── README.md
 ├── dsl/
-│   ├── __init__.py
 │   ├── api.py         # User-facing API
 │   ├── program.py     # Program management
 │   ├── ir.py          # Intermediate representation
