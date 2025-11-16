@@ -1,6 +1,6 @@
 # compiler.py
 import pennylane as qml
-from dsl.ir import *
+from .ir import *
 
 
 def compile_to_pennylane(ir):

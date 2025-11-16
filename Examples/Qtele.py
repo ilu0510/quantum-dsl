@@ -1,6 +1,8 @@
 #Quantum Teleportation
 
-from dsl.api import *
+
+
+from dsl import *
 import numpy as np
 
 @BLOCK("teleport")

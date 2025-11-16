@@ -1,6 +1,8 @@
 #Deutsch-Jozsa 2 Bit Algorithm
 
-from dsl.api import *
+
+
+from dsl import *
 
 @BLOCK("oracle_const0")
 def oracle_const0(x0, x1, a):

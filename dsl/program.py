@@ -1,6 +1,6 @@
 # program.py
-from dsl.ir import *
-from dsl.compiler import *
+from .ir import *
+from .compiler import *
 
 _stack = []
 

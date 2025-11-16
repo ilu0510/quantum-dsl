@@ -15,6 +15,7 @@ A Python-based Domain-Specific Language (DSL) for quantum computing that simplif
 quantum-dsl/
 ├── .gitignore
 ├── README.md
+├── setup.py
 ├── dsl/
 │   ├── __init__.py
 │   ├── api.py         # User-facing API

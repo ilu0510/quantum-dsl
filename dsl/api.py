@@ -1,7 +1,7 @@
 #api.py
 from .program import Program, current_program
 from .ir import *
-from dsl.compiler import *
+from .compiler import *
 import pennylane as qml
 from matplotlib import pyplot as plt
 import numpy as np
