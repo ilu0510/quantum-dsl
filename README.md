@@ -3,7 +3,7 @@ A Python-based Domain-Specific Language (DSL) for quantum computing that simplif
 
 ## Features
 
-- **High-level abstractions**: Simple functions like `SUPERPOSE()`, `ENTANGLE()`, and `MEASURE()`
+- **High-level abstractions**: Simple functions to abstract away gate-level details
 - **Reusable blocks**: Define circuit fragments with `@BLOCK` and reuse with `USE()`
 - **Multiple gate types**: Single-qubit, two-qubit, rotation, and multi-controlled gates
 - **Visualization**: ASCII and matplotlib circuit drawings with `DRAW()`
@@ -17,6 +17,7 @@ quantum-dsl/
 ├── README.md
 ├── setup.py
 ├── dsl/
+│   ├── __init__.py 
 │   ├── api.py         # User-facing API
 │   ├── program.py     # Program management
 │   ├── ir.py          # Intermediate representation
