@@ -183,7 +183,7 @@ class _Gate:
 gate = _Gate()
 
 
-# ---BLOCKS (MVP)---
+# ---BLOCKS---
 
 _BLOCKS = {}
 
@@ -199,10 +199,23 @@ def BLOCK(name=None):
         return fn
     return _register
 
-def USE(name, **kwargs): 
+def USE(name, *args, **kwargs): 
     fn = _BLOCKS.get(name)
     if fn is None:
         print(f"ValueError: Unknown BLOCK {name}")
-    fn(**kwargs)
+    fn(*args, **kwargs)
 
 
+# --- Inspect IR ---
+
+def INSPECT_IR(program):
+    print(f"Qubits: {program.ir.width}")
+    print("\nInstructions:")
+    for i, op in enumerate(program.ir.ops, 1):
+        if hasattr(op, "name"):
+            if op.params:
+                print(f"  {i}. {op.name}(wires={op.wires}, params={op.params})")
+            else:
+                print(f"  {i}. {op.name}(wires={op.wires})")
+        else:
+            print(f"  {i}. MEASURE(kind='{op.kind}', wires={op.wires})")    

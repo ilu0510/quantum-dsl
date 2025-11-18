@@ -6,6 +6,7 @@ A Python-based Domain-Specific Language (DSL) for quantum computing that simplif
 - **High-level abstractions**: Simple functions to abstract away gate-level details
 - **Reusable blocks**: Define circuit fragments with `@BLOCK` and reuse with `USE()`
 - **Multiple gate types**: Single-qubit, two-qubit, rotation, and multi-controlled gates
+- **IR inspection**: View the intermediate representation with `INSPECT_IR()` to understand circuit compilation
 - **Visualization**: ASCII and matplotlib circuit drawings with `DRAW()`
 - **Result graphing**: Histogram and statevector visualisations with `GRAPH()`
 - **Built on PennyLane**: Leverages a powerful quantum computing framework
