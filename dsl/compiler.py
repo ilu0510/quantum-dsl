@@ -30,7 +30,7 @@ def compile_to_pennylane(ir):
                 outputs.append(op)
 
         if not outputs:
-            print("Runtime Error: No MEASURE outputs specified.")
+            raise RuntimeError("No MEASURE outputs specified.")
 
         returns = []
         for m in outputs:

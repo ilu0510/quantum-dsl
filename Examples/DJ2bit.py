@@ -1,7 +1,4 @@
 #Deutsch-Jozsa 2 Bit Algorithm
-
-
-
 from dsl import *
 
 @BLOCK("oracle_const0")

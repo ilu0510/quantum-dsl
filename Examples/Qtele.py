@@ -1,7 +1,4 @@
 #Quantum Teleportation
-
-
-
 from dsl import *
 import numpy as np
 
@@ -13,11 +10,15 @@ def teleport(state):
     SUPERPOSE(0)
     gate.CNOT([1,2])
     gate.CZ([0,2])
-    MEASURE("probs", 2)
+    
 
 state_to_teleport = np.array([1/np.sqrt(2), 1/np.sqrt(2)])
 
 with PREPARE(3) as p:
     USE("teleport", state=state_to_teleport)
+    MEASURE("probs", 2)
 
-GRAPH(p, "probs")
+print(INSPECT_IR(p, "dict"))
+
+
+#GRAPH(p, "probs")

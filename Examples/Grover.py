@@ -1,8 +1,5 @@
 #Grover's Search Algorithm
-
-
-
-from dsl.api import *
+from dsl import *
 
 @BLOCK("oracle")
 def oracle():
@@ -26,4 +23,7 @@ with PREPARE(3) as p:
     USE("diffusion")
     MEASURE("probs", 0, 1, 2)
 
+INSPECT_IR(p)
+print(p())
+DRAW(p, "ascii")
 GRAPH(p, "statevector")

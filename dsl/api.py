@@ -5,23 +5,22 @@ from .compiler import *
 import pennylane as qml
 from matplotlib import pyplot as plt
 import numpy as np
+from pprint import pformat
 
 def PREPARE(n):
     if not isinstance(n, int) or n <= 0:
-        print("TypeError: PREPARE expects a postive integer for number of qubits")
+        raise TypeError("PREPARE expects a postive integer for number of qubits")
     return Program(width=n)
 
 def SUPERPOSE(*wires):
     if not wires:
-        print("ValueError: SUPERPOSE expects at least one wire.")
-        return
+        raise ValueError("SUPERPOSE expects at least one wire.")
     for w in wires: 
         current_program().append(Op("H", [w]))
 
 def ENTANGLE(a, b):
     if not isinstance(a, int) or not isinstance(b, int):
-        print("TypeError: ENTANGLE expects two wire indices.")
-        return
+        raise TypeError("ENTANGLE expects two wire indices.")
     current_program().append(Op("CNOT", [a, b]))
 
 def STATE_PREP(state, wire):
@@ -29,14 +28,14 @@ def STATE_PREP(state, wire):
 
 def MEASURE(kind, *wires):
     if kind not in ("state", "probs"):
-        print("ValueError: MEASURE kind must be either 'state' or 'probs'.")
+        raise ValueError("MEASURE kind must be either 'state' or 'probs'.")
     if kind == "probs" and not wires:
-        print("ValueError: Measure('probs') expects at least one wire.")
-        return
+        raise ValueError("Measure('probs', ...) expects at least one wire.")
     current_program().append(Measure(kind, wires))
 
 def DRAW(circ, draw_type="ascii"):
-    
+    if draw_type not in ("ascii", "diagram"):
+        raise ValueError("DRAW 'draw_type' must be 'ascii' or 'diagram'.")
     if hasattr(circ, 'compile'):
         circuit = circ._compiled
         if circuit is None:
@@ -53,7 +52,8 @@ def DRAW(circ, draw_type="ascii"):
         return fig
 
 def GRAPH(program, graph_type="probs"):
-    
+    if graph_type not in ("probs", "statevector"):
+        raise ValueError("GRAPH 'graph_type' must be 'probs' or 'statevector'.")
     results = program()
     n_states = len(results)
     n_qubits = int(np.log2(n_states))
@@ -89,31 +89,27 @@ def GRAPH(program, graph_type="probs"):
 # ---Bell States---
 def BELL_PHI_PLUS(a, b):
     if not isinstance(a, int) or not isinstance(b, int):
-        print("TypeError: BELL_PHI_PLUS expects two integer wires.")
-        return
+        raise TypeError("BELL_PHI_PLUS expects two integer wires.")
     current_program().append(Op("H", [a]))
     ENTANGLE(a, b)
 
 def BELL_PHI_MINUS(a, b):
     if not isinstance(a, int) or not isinstance(b, int):
-        print("TypeError: BELL_PHI_MINUS expects two integer wires.")
-        return
+        raise TypeError("BELL_PHI_MINUS expects two integer wires.")
     current_program().append(Op("H", [a]))
     ENTANGLE(a, b)
     current_program().append(Op("Z", [b]))
 
 def BELL_PSI_PLUS(a, b):
     if not isinstance(a, int) or not isinstance(b, int):
-        print("TypeError: BELL_PSI_PLUS expects two integer wires.")
-        return
+        raise TypeError("BELL_PSI_PLUS expects two integer wires.")
     current_program().append(Op("H", [a]))
     ENTANGLE(a, b)
     current_program().append(Op("X", [b]))
 
 def BELL_PSI_MINUS(a, b):
     if not isinstance(a, int) or not isinstance(b, int):
-        print("TypeError: BELL_PSI_MINUS expects two integer wires.")
-        return
+        raise TypeError("BELL_PSI_MINUS expects two integer wires.")
     current_program().append(Op("H", [a]))
     ENTANGLE(a, b)
     current_program().append(Op("Z", [b]))
@@ -123,37 +119,42 @@ class _Gate:
 
     #---Single Qubit Gtaes---
     def H(self, *wires): 
+        if not wires:
+            raise ValueError("gate.H expects at least one wire.")
         for w in wires: 
             current_program().append(Op("H", [w]))
     def X(self, *wires): 
+        if not wires:
+            raise ValueError("gate.X expects at least one wire.")
         for w in wires:
             current_program().append(Op("X", [w]))
-    def Y(self, *wires): 
+    def Y(self, *wires):
+        if not wires:
+            raise ValueError("gate.Y expects at least one wire.") 
         for w in wires:
             current_program().append(Op("Y", [w]))
     def Z(self, *wires): 
+        if not wires:
+            raise ValueError("gate.Z expects at least one wire.")
         for w in wires:
             current_program().append(Op("Z", [w]))
 
     #---Modifying the CNOT, CZ, CY gates so it can take in tuples---
     def CNOT(self, *pairs):
         if not pairs:
-            print("ValueError: CNOT expects at least one (control, target) tuple.")
-            return
+            raise ValueError("gate.CNOT expects at least one (control, target) tuple.")
         for c, t in pairs:
             current_program().append(Op("CNOT", [c, t]))
 
     def CZ(self, *pairs):
         if not pairs:
-            print("ValueError: CZ expects at least one (control, target) tuple.")
-            return
+            raise ValueError("gate.CZ expects at least one (control, target) tuple.")
         for c, t in pairs:
             current_program().append(Op("CZ", [c, t]))
 
     def CY(self, *pairs):
         if not pairs:
-            print("ValueError: CY expects at least one (control, target) tuple.")
-            return
+            raise ValueError("gate.CY expects at least one (control, target) tuple.")
         for c, t in pairs:
             current_program().append(Op("CY", [c, t]))
 
@@ -161,23 +162,22 @@ class _Gate:
     def CTRL(self, gate_name, control_wires, target_wire):
         if not isinstance(control_wires, list):
             control_wires = [control_wires]
+        if not control_wires:
+            raise ValueError("gate.CTRL expects at least one control wire.")
         current_program().append(Op("CTRL", [*control_wires, target_wire], params=(gate_name,)))
     
     #---Rotation Gates---
     def RX(self, theta, w): 
         if not isinstance(theta, (int, float)):
-            print("TypeError: RX expects a numeric angle.")
-            return
+            raise TypeError("RX expects a numeric angle.")
         current_program().append(Op("RX", [w], params=(theta,)))
     def RY(self, theta, w):
         if not isinstance(theta, (int, float)):
-            print("TypeError: RY expects a numeric angle.")
-            return 
+            raise TypeError("RY expects a numeric angle.")
         current_program().append(Op("RY", [w], params=(theta,)))
     def RZ(self, theta, w):
         if not isinstance(theta, (int, float)):
-            print("TypeError: RZ expects a numeric angle.")
-            return
+            raise TypeError("RZ expects a numeric angle.")
         current_program().append(Op("RZ", [w], params=(theta,)))
 
 gate = _Gate()
@@ -189,8 +189,7 @@ _BLOCKS = {}
 
 def BLOCK(name=None):
     if not isinstance(name, str) or name.strip() == "":
-        print("TypeError: @BLOCK requires a non-empty string name")
-        return lambda fn: fn
+        raise TypeError("@BLOCK requires a non-empty string name")
     def _register(fn):
         if name in _BLOCKS:
             print(f"RuntimeError: BLOCK {name} already exists.")
@@ -202,20 +201,39 @@ def BLOCK(name=None):
 def USE(name, *args, **kwargs): 
     fn = _BLOCKS.get(name)
     if fn is None:
-        print(f"ValueError: Unknown BLOCK {name}")
+        raise ValueError(f"Unknown BLOCK {name}")
     fn(*args, **kwargs)
 
 
 # --- Inspect IR ---
 
-def INSPECT_IR(program):
-    print(f"Qubits: {program.ir.width}")
-    print("\nInstructions:")
-    for i, op in enumerate(program.ir.ops, 1):
-        if hasattr(op, "name"):
-            if op.params:
-                print(f"  {i}. {op.name}(wires={op.wires}, params={op.params})")
+def INSPECT_IR(program, format="dict"):
+    if format not in ("dict", "text"):
+        raise ValueError("INSPECT_IR 'format' must be 'dict' or 'text'.")
+    if format == "dict":
+        ir_data = {
+            "qubits": program.ir.width,
+            "operations": [
+                {
+                    "op": op.name if hasattr(op, "name") else "MEASURE",
+                    "wires": op.wires,
+                    "params": list(op.params) if hasattr(op, "params") else [],
+                    "kind": op.kind if hasattr(op, "kind") else None
+                }
+                for op in program.ir.ops
+            ]
+        }
+        return pformat(ir_data, indent=2, sort_dicts=False) 
+    elif format == "text":
+        lines = []
+        lines.append(f"Qubits: {program.ir.width}")
+        lines.append("\nInstructions:")
+        for i, op in enumerate(program.ir.ops, 1):
+            if hasattr(op, "name"):
+                if op.params:
+                    lines.append(f"  {i}. {op.name}(wires={op.wires}, params={op.params})")
+                else:
+                    lines.append(f"  {i}. {op.name}(wires={op.wires})")
             else:
-                print(f"  {i}. {op.name}(wires={op.wires})")
-        else:
-            print(f"  {i}. MEASURE(kind='{op.kind}', wires={op.wires})")    
+                lines.append(f"  {i}. MEASURE(kind='{op.kind}', wires={op.wires})")
+        return "\n".join(lines)
