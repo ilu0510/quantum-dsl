@@ -5,9 +5,10 @@ class Op:
         self.name, self.wires, self.params = name, wires, params or ()
 
 class Measure:
-    def __init__(self, kind, wires): 
+    def __init__(self, kind, wires, observable=None): 
         self.kind = kind
         self.wires = wires
+        self.observable = observable
 
 class IRProgram:
     def __init__(self, width, ops=None):
@@ -31,6 +32,9 @@ PL_NAME_MAP = {
     "RZ": qml.RZ,
     "CZ": qml.CZ,
     "CY": qml.CY,
+    "CRX": qml.CRX, 
+    "CRY": qml.CRY,
+    "CRZ": qml.CRZ,
     "CTRL": None,
     "StatePrep": qml.StatePrep,
 }

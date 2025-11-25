@@ -26,12 +26,21 @@ def ENTANGLE(a, b):
 def STATE_PREP(state, wire):
     current_program().append(Op("StatePrep", [wire], params=(state,)))
 
-def MEASURE(kind, *wires):
-    if kind not in ("state", "probs"):
-        raise ValueError("MEASURE kind must be either 'state' or 'probs'.")
+def MEASURE(kind, *wires, **kwargs):
+    if kind not in ("state", "probs", "expval"):
+        raise ValueError("MEASURE kind must be 'state', 'probs', or 'expval'.")
     if kind == "probs" and not wires:
-        raise ValueError("Measure('probs', ...) expects at least one wire.")
-    current_program().append(Measure(kind, wires))
+        raise ValueError("MEASURE('probs', ...) expects at least one wire.")
+    if kind == "expval":
+        if not wires or len(wires) != 1:
+            raise ValueError("MEASURE('expval', wire) expects exactly one wire.")
+        observable = kwargs.get("observable")
+        if not observable or observable not in ("X", "Y", "Z", "H"):
+            raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
+        current_program().append(Measure(kind, wires, observable=observable))
+    else:
+        current_program().append(Measure(kind, wires))
+    
 
 def DRAW(circ, draw_type="ascii"):
     if draw_type not in ("ascii", "diagram"):
@@ -138,6 +147,20 @@ class _Gate:
             raise ValueError("gate.Z expects at least one wire.")
         for w in wires:
             current_program().append(Op("Z", [w]))
+    
+    #---Rotation Gates---
+    def RX(self, theta, w): 
+        if not isinstance(theta, (int, float)):
+            raise TypeError("RX expects a numeric angle.")
+        current_program().append(Op("RX", [w], params=(theta,)))
+    def RY(self, theta, w):
+        if not isinstance(theta, (int, float)):
+            raise TypeError("RY expects a numeric angle.")
+        current_program().append(Op("RY", [w], params=(theta,)))
+    def RZ(self, theta, w):
+        if not isinstance(theta, (int, float)):
+            raise TypeError("RZ expects a numeric angle.")
+        current_program().append(Op("RZ", [w], params=(theta,)))
 
     #---Modifying the CNOT, CZ, CY gates so it can take in tuples---
     def CNOT(self, *pairs):
@@ -165,20 +188,25 @@ class _Gate:
         if not control_wires:
             raise ValueError("gate.CTRL expects at least one control wire.")
         current_program().append(Op("CTRL", [*control_wires, target_wire], params=(gate_name,)))
-    
-    #---Rotation Gates---
-    def RX(self, theta, w): 
+
+        #---Controlled Rotation Gates---
+    def CRX(self, theta, control, target):
+        """Controlled RX rotation"""
         if not isinstance(theta, (int, float)):
-            raise TypeError("RX expects a numeric angle.")
-        current_program().append(Op("RX", [w], params=(theta,)))
-    def RY(self, theta, w):
+            raise TypeError("CRX expects a numeric angle.")
+        current_program().append(Op("CRX", [control, target], params=(theta,)))
+
+    def CRY(self, theta, control, target):
+        """Controlled RY rotation"""
         if not isinstance(theta, (int, float)):
-            raise TypeError("RY expects a numeric angle.")
-        current_program().append(Op("RY", [w], params=(theta,)))
-    def RZ(self, theta, w):
+            raise TypeError("CRY expects a numeric angle.")
+        current_program().append(Op("CRY", [control, target], params=(theta,)))
+
+    def CRZ(self, theta, control, target):
+        """Controlled RZ rotation"""
         if not isinstance(theta, (int, float)):
-            raise TypeError("RZ expects a numeric angle.")
-        current_program().append(Op("RZ", [w], params=(theta,)))
+            raise TypeError("CRZ expects a numeric angle.")
+        current_program().append(Op("CRZ", [control, target], params=(theta,)))
 
 gate = _Gate()
 

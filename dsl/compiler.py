@@ -38,6 +38,9 @@ def compile_to_pennylane(ir):
                 returns.append(qml.state())
             elif m.kind == "probs":
                 returns.append(qml.probs(wires=m.wires))
+            elif m.kind == "expval":
+                obs_gate = PL_NAME_MAP[m.observable]
+                returns.append(qml.expval(obs_gate(wires=m.wires)))
             else:
                 print(f"RuntimeError: Unsupported MEASURE kind: {m.kind}")
 
