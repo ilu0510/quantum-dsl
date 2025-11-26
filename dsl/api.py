@@ -61,39 +61,74 @@ def DRAW(circ, draw_type="ascii"):
         return fig
 
 def GRAPH(program, graph_type="probs"):
+    # --- Validate request ---
     if graph_type not in ("probs", "statevector"):
         raise ValueError("GRAPH 'graph_type' must be 'probs' or 'statevector'.")
-    results = program()
+
+    # --- Run the program ---
+    results = program()     # either statevector or probabilities
+    results = np.asarray(results)
+
+    # --- Detect measurement type from IR ---
+    last_op = program.ir.ops[-1]
+    kind = last_op.kind     # "state" or "probs"
+
+    # --- Determine number of qubits and labels ---
     n_states = len(results)
     n_qubits = int(np.log2(n_states))
     labels = [format(i, f'0{n_qubits}b') for i in range(n_states)]
-    
+
     if graph_type == "probs":
-        plt.figure(figsize=(10, 6))
-        plt.bar(labels, results)
-        plt.xlabel('Basis States')
-        plt.ylabel('Probability')
-        plt.title('Measurement Probabilities')
-        plt.show()
-        
-    elif graph_type == "statevector":
-        real_parts = np.real(results)
-        imag_parts = np.imag(results)
-        
-        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6))
-        
-        ax1.bar(labels, real_parts, color='blue')
-        ax1.set_xlabel('Basis States')
-        ax1.set_ylabel('Real Amplitude')
-        ax1.set_title('Real Part')
-        
-        ax2.bar(labels, imag_parts, color='red')
-        ax2.set_xlabel('Basis States')
-        ax2.set_ylabel('Imaginary Amplitude')
-        ax2.set_title('Imaginary Part')
-        
+        if kind == "state":
+            probs = np.abs(results) ** 2
+        elif kind == "probs":
+            probs = results
+        else:
+            raise ValueError("GRAPH(probs) requires MEASURE('state') or MEASURE('probs').")
+
+        plt.figure(figsize=(12, 6))
+        plt.bar(labels, probs)
+
+        plt.xlabel('Basis States', fontsize=14)
+        plt.ylabel('Probability', fontsize=14)
+        plt.title('Measurement Probabilities', fontsize=18)
+
+        plt.xticks(fontsize=12)
+        plt.yticks(fontsize=12)
+
         plt.tight_layout()
         plt.show()
+        return
+
+    if graph_type == "statevector":
+
+        # Cannot plot statevector unless user measured 'state'
+        if kind != "state":
+            raise ValueError("GRAPH('statevector') requires MEASURE('state') in the program.")
+
+        real_parts = np.real(results)
+        imag_parts = np.imag(results)
+
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 7))
+
+        # --- Real part ---
+        ax1.bar(labels, real_parts, color='blue')
+        ax1.set_xlabel('Basis States', fontsize=14)
+        ax1.set_ylabel('Real Amplitude', fontsize=14)
+        ax1.set_title('Real Part of Statevector', fontsize=18)
+        ax1.tick_params(axis='both', labelsize=12)
+
+        # --- Imag part ---
+        ax2.bar(labels, imag_parts, color='red')
+        ax2.set_xlabel('Basis States', fontsize=14)
+        ax2.set_ylabel('Imaginary Amplitude', fontsize=14)
+        ax2.set_title('Imaginary Part of Statevector', fontsize=18)
+        ax2.tick_params(axis='both', labelsize=12)
+
+        plt.tight_layout()
+        plt.show()
+        return
+
 
 # ---Bell States---
 def BELL_PHI_PLUS(a, b):
@@ -147,6 +182,12 @@ class _Gate:
             raise ValueError("gate.Z expects at least one wire.")
         for w in wires:
             current_program().append(Op("Z", [w]))
+
+    def SWAP(self, *pairs):
+        if not pairs:
+            raise ValueError("gate.SWAP expects at least one (wire_a, wire_b) pair.")
+        for a, b in pairs:
+            current_program().append(Op("SWAP", [a, b]))
     
     #---Rotation Gates---
     def RX(self, theta, w): 
@@ -207,6 +248,8 @@ class _Gate:
         if not isinstance(theta, (int, float)):
             raise TypeError("CRZ expects a numeric angle.")
         current_program().append(Op("CRZ", [control, target], params=(theta,)))
+
+    
 
 gate = _Gate()
 

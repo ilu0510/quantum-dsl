@@ -26,6 +26,7 @@ PL_NAME_MAP = {
     "X": qml.PauliX,
     "Y": qml.PauliY,
     "Z": qml.PauliZ,
+    "SWAP": qml.SWAP,
     "CNOT": qml.CNOT,
     "RX": qml.RX,
     "RY": qml.RY,

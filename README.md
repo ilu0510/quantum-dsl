@@ -26,6 +26,7 @@ quantum-dsl/
 └── Examples/
     ├── Grover.py      # Grover's search algorithm
     ├── DJ2Bit.py      # Deutsch-Jozsa algorithm
+    ├── QFT.py         # Quantum Fourier Transform
     └── Qtele.py       # Quantum teleportation
 ```
 
