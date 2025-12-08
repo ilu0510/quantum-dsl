@@ -5,10 +5,11 @@ class Op:
         self.name, self.wires, self.params = name, wires, params or ()
 
 class Measure:
-    def __init__(self, kind, wires, observable=None): 
-        self.kind = kind
-        self.wires = wires
-        self.observable = observable
+    def __init__(self, kind, wires=None, observable=None, operator=None):
+        self.kind = kind          # "state", "probs", "expval"
+        self.wires = wires        # can be None for global operators
+        self.observable = observable  # "X", "Y", "Z", "H", etc.
+        self.operator = operator  
 
 class IRProgram:
     def __init__(self, width, ops=None):

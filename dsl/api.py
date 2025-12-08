@@ -52,21 +52,63 @@ def HARTREE_FOCK(electrons, orbitals, basis='occupation_number'):
     wires = list(range(orbitals))
     current_program().append(Op("HartreeFock", wires, params=(electrons, basis)))
 
+# def MEASURE(kind, *wires, **kwargs):
+#     if kind not in ("state", "probs", "expval"):
+#         raise ValueError("MEASURE kind must be 'state', 'probs', or 'expval'.")
+    
+#     if kind == "probs" and not wires:
+#         raise ValueError("MEASURE('probs', ...) expects at least one wire.")
+    
+#     if kind == "expval":
+#         if not wires or len(wires) != 1:
+#             raise ValueError("MEASURE('expval', wire) expects exactly one wire.")
+#         operator = kwargs.get("hamiltonian")
+
+#         if operator is not None:
+#             current_program().append(Measure(kind, wires or None, operator=operator))
+
+#         observable = kwargs.get("observable")
+#         if not observable or observable not in ("X", "Y", "Z", "H"):
+#             raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
+#         current_program().append(Measure(kind, wires, observable=observable))
+#     else:
+#         current_program().append(Measure(kind, wires))
+
 def MEASURE(kind, *wires, **kwargs):
     if kind not in ("state", "probs", "expval"):
         raise ValueError("MEASURE kind must be 'state', 'probs', or 'expval'.")
-    if kind == "probs" and not wires:
-        raise ValueError("MEASURE('probs', ...) expects at least one wire.")
-    if kind == "expval":
-        if not wires or len(wires) != 1:
-            raise ValueError("MEASURE('expval', wire) expects exactly one wire.")
-        observable = kwargs.get("observable")
-        if not observable or observable not in ("X", "Y", "Z", "H"):
-            raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
-        current_program().append(Measure(kind, wires, observable=observable))
-    else:
+
+    # --- PROBABILITY MEASURE ---
+    if kind == "probs":
+        if not wires:
+            raise ValueError("MEASURE('probs', ...) expects at least one wire.")
         current_program().append(Measure(kind, wires))
-    
+        return
+
+    # --- EXPECTATION VALUE ---
+    if kind == "expval":
+        # Case 1: User supplied a full Hamiltonian
+        hamiltonian = kwargs.get("hamiltonian")
+        if hamiltonian is not None:
+            # No need for wires; Hamiltonians define their own wires
+            current_program().append(Measure(kind, None, operator=hamiltonian))
+            return
+
+        # Case 2: Simple observable like X, Y, Z, H
+        if not wires or len(wires) != 1:
+            raise ValueError("MEASURE('expval', wire) expects exactly one wire when no Hamiltonian is provided.")
+        
+        observable = kwargs.get("observable")
+        if observable not in ("X", "Y", "Z", "H"):
+            raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
+        
+        current_program().append(Measure(kind, wires, observable=observable))
+        return
+
+    # --- STATEVECTOR MEASURE ---
+    if kind == "state":
+        current_program().append(Measure(kind, wires))
+        return    
 
 def DRAW(circ, draw_type="ascii"):
     if draw_type not in ("ascii", "diagram"):
@@ -87,19 +129,44 @@ def DRAW(circ, draw_type="ascii"):
         return fig
 
 def GRAPH(program, graph_type="probs"):
-    # --- Validate request ---
-    if graph_type not in ("probs", "statevector"):
-        raise ValueError("GRAPH 'graph_type' must be 'probs' or 'statevector'.")
 
-    # --- Run the program ---
+    if graph_type not in ("probs", "statevector", "expval"):
+        raise ValueError("GRAPH 'graph_type' must be 'probs', 'statevector' or 'expval'.")
+
+
     results = program()    
-    results = np.asarray(results)
-
-    # --- Detect measurement type from IR ---
     last_op = program.ir.ops[-1]
-    kind = last_op.kind     # "state" or "probs"
+    kind = last_op.kind   
 
-    # --- Determine number of qubits and labels ---
+    if graph_type == "expval":
+        if kind != "expval":
+            raise ValueError("GRAPH('expval') requires MEASURE('expval') in the program.")
+
+        # Make results into a 1D numpy array, even if it's a scalar or tuple
+        values = np.atleast_1d(np.array(results, dtype=float))
+
+        # Simple labels: expval_0, expval_1, ...
+        if values.size == 1:
+            labels = ["expval"]
+        else:
+            labels = [f"expval_{i}" for i in range(values.size)]
+
+        plt.figure(figsize=(6, 4))
+        plt.bar(labels, values)
+
+        plt.xlabel('Observable', fontsize=14)
+        plt.ylabel('Expectation value', fontsize=14)
+        plt.title('Expectation Values', fontsize=18)
+
+        plt.xticks(fontsize=12)
+        plt.yticks(fontsize=12)
+
+        plt.tight_layout()
+        plt.show()
+        return
+
+
+    results = np.asarray(results)
     n_states = len(results)
     n_qubits = int(np.log2(n_states))
     labels = [format(i, f'0{n_qubits}b') for i in range(n_states)]
