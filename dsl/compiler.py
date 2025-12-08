@@ -16,10 +16,30 @@ def compile_to_pennylane(ir):
                     control_wires = op.wires[:-1]
                     target_wire = op.wires[-1]
                     base_gate = PL_NAME_MAP[gate_name]
-                    qml.ctrl(base_gate, control = control_wires)(target_wire)
+                    qml.ctrl(base_gate, control=control_wires)(target_wire)
+                
                 elif op.name == "StatePrep":
                     state = op.params[0]
                     qml.StatePrep(state, op.wires)
+                
+                elif op.name == "BasisState":
+                    state = op.params[0]
+                    qml.BasisState(state, wires=op.wires)
+                
+                elif op.name == "HartreeFock":
+                    electrons = op.params[0]
+                    basis = op.params[1] if len(op.params) > 1 else 'occupation_number'
+                    orbitals = len(op.wires)
+                    hf_state_array = qml.qchem.hf_state(electrons, orbitals, basis=basis)
+                    qml.BasisState(hf_state_array, wires=op.wires)
+                
+                elif op.name == "DoubleExcitation":
+                    theta = op.params[0]
+                    qml.DoubleExcitation(theta, wires=op.wires)
+                
+                elif op.name == "SingleExcitation":
+                    theta = op.params[0]
+                    qml.SingleExcitation(theta, wires=op.wires)
                 else:
                     gate = PL_NAME_MAP[op.name]
                     if op.params:

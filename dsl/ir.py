@@ -38,4 +38,8 @@ PL_NAME_MAP = {
     "CRZ": qml.CRZ,
     "CTRL": None,
     "StatePrep": qml.StatePrep,
+    "BasisState": qml.BasisState,
+    "SingleExcitation": qml.SingleExcitation,
+    "DoubleExcitation": qml.DoubleExcitation,
+    "HartreeFock": None,
 }

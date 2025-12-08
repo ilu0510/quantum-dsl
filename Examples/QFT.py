@@ -15,12 +15,15 @@ def qft(wires):
         gate.SWAP((wires[i], wires[n-1-i]))
 
 with PREPARE(4) as p:
-    gate.X(0,1)
-    USE("qft", [0,1,2,3])
-    MEASURE("state")   
+    gate.X(0,1,2)
+    USE("qft", [0,1,2,3]) 
+    MEASURE("state")
 
-DRAW(p, "ascii")
 GRAPH(p, "statevector")
+
+
+
+
 
 
 

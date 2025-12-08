@@ -6,6 +6,7 @@ import pennylane as qml
 from matplotlib import pyplot as plt
 import numpy as np
 from pprint import pformat
+from pennylane import qchem
 
 def PREPARE(n):
     if not isinstance(n, int) or n <= 0:
@@ -25,6 +26,31 @@ def ENTANGLE(a, b):
 
 def STATE_PREP(state, wire):
     current_program().append(Op("StatePrep", [wire], params=(state,)))
+
+def BASIS_STATE(state, wire=None):
+    if wire is None:
+        wire = list(range(len(state)))
+    if len(state) != len(wire):
+        raise ValueError(f"State length {len(state)} must match number of wires {len(wire)}")
+    current_program().append(Op("BasisState", wire, params=(state,)))
+
+def SINGLE_EXCITATION(theta, wires):
+    if not isinstance(theta, (int, float)):
+        raise TypeError("SINGLE_EXCITATION expects a numeric angle")
+    if len(wires) != 2:
+        raise ValueError("SINGLE_EXCITATION requires exactly 2 wires")
+    current_program().append(Op("SingleExcitation", wires, params=(theta,)))
+
+def DOUBLE_EXCITATION(theta, wires):
+    if not isinstance(theta, (int, float)):
+        raise TypeError("DOUBLE_EXCITATION expects a numeric angle")
+    if len(wires) != 4:
+        raise ValueError("DOUBLE_EXCITATION requires exactly 4 wires")
+    current_program().append(Op("DoubleExcitation", wires, params=(theta,)))
+
+def HARTREE_FOCK(electrons, orbitals, basis='occupation_number'):
+    wires = list(range(orbitals))
+    current_program().append(Op("HartreeFock", wires, params=(electrons, basis)))
 
 def MEASURE(kind, *wires, **kwargs):
     if kind not in ("state", "probs", "expval"):
@@ -66,7 +92,7 @@ def GRAPH(program, graph_type="probs"):
         raise ValueError("GRAPH 'graph_type' must be 'probs' or 'statevector'.")
 
     # --- Run the program ---
-    results = program()     # either statevector or probabilities
+    results = program()    
     results = np.asarray(results)
 
     # --- Detect measurement type from IR ---
