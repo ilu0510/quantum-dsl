@@ -34,6 +34,8 @@ def BASIS_STATE(state, wire=None):
         raise ValueError(f"State length {len(state)} must match number of wires {len(wire)}")
     current_program().append(Op("BasisState", wire, params=(state,)))
 
+# ---Quantum Chemistry ---
+
 def SINGLE_EXCITATION(theta, wires):
     if not isinstance(theta, (int, float)):
         raise TypeError("SINGLE_EXCITATION expects a numeric angle")
@@ -52,27 +54,45 @@ def HARTREE_FOCK(electrons, orbitals, basis='occupation_number'):
     wires = list(range(orbitals))
     current_program().append(Op("HartreeFock", wires, params=(electrons, basis)))
 
-# def MEASURE(kind, *wires, **kwargs):
-#     if kind not in ("state", "probs", "expval"):
-#         raise ValueError("MEASURE kind must be 'state', 'probs', or 'expval'.")
-    
-#     if kind == "probs" and not wires:
-#         raise ValueError("MEASURE('probs', ...) expects at least one wire.")
-    
-#     if kind == "expval":
-#         if not wires or len(wires) != 1:
-#             raise ValueError("MEASURE('expval', wire) expects exactly one wire.")
-#         operator = kwargs.get("hamiltonian")
+def MOLECULAR_HAMILTONIAN(
+    symbols,
+    geometry,
+    charge=0,
+    mult=1,
+    basis="sto-3g",
+    method="dhf",
+    active_electrons=None,
+    active_orbitals=None,
+    mapping="jordan_wigner",
+    outpath=".",
+    wires=None,
+    args=None,
+    convert_tol=1e12,  # docs say default is 1e12 * machine epsilon
+):
+    # Molecule: use basis_name, not basis
+    molecule = qchem.Molecule(
+        symbols,
+        geometry,
+        charge=charge,
+        mult=mult,
+        basis_name=basis,  
+    )
 
-#         if operator is not None:
-#             current_program().append(Measure(kind, wires or None, operator=operator))
+    H, n_qubits = qchem.molecular_hamiltonian(
+        molecule,
+        method=method,
+        active_electrons=active_electrons,
+        active_orbitals=active_orbitals,
+        mapping=mapping,
+        outpath=outpath,
+        wires=wires,
+        args=args,
+        convert_tol=convert_tol,
+    )
 
-#         observable = kwargs.get("observable")
-#         if not observable or observable not in ("X", "Y", "Z", "H"):
-#             raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
-#         current_program().append(Measure(kind, wires, observable=observable))
-#     else:
-#         current_program().append(Measure(kind, wires))
+    return H, n_qubits
+
+# --- Results and Visualisation ---
 
 def MEASURE(kind, *wires, **kwargs):
     if kind not in ("state", "probs", "expval"):
