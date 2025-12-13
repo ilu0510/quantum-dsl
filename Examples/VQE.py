@@ -1,71 +1,44 @@
 import pennylane as qml
-import numpy as np
-from pennylane.qchem import Molecule, molecular_hamiltonian
+from pennylane import numpy as np
 
-# 1. Define molecule
-symbols = ["H", "H"]
-coordinates = np.array(
-    [
-        [-0.70108983, 0.0, 0.0],
-        [ 0.70108983, 0.0, 0.0],
-    ]
-)
+dev = qml.device("default.qubit", wires = 2)
 
-molecule = Molecule(
-    symbols=symbols,
-    coordinates=coordinates,  
-    charge=0,
-    mult=1,              
-    basis_name="sto-3g",   
-)
-
-H, num_qubits = molecular_hamiltonian(molecule)
-
-print("Number of qubits:", num_qubits)
-print("Hamiltonian terms:", len(H.terms()[0]))
-
-dev = qml.device("default.qubit", wires=num_qubits)
-
-# --- 4. Hartree–Fock reference state ---
-electrons = molecule.n_electrons  
-hf_state = qml.qchem.hf_state(electrons, num_qubits)
-print("HF bitstring:", hf_state)
+hami = qml.PauliZ(0) @ qml.PauliZ(1)
 
 @qml.qnode(dev)
-def vqe_circuit(theta):
-    qml.BasisState(hf_state, wires=range(num_qubits))
-    qml.DoubleExcitation(theta[0], wires=[0, 1, 2, 3])
+def vqe_circuit(params):
+    qml.RY(params[0], wires = 0)
+    qml.RY(params[1], wires = 1)
+    qml.CNOT(wires=[0,1])
 
-    return qml.expval(H)
+    return qml.expval(hami)
 
-def energy(theta_scalar):
-    # wrap scalar into length-1 array
-    return vqe_circuit(np.array([theta_scalar], dtype=float))
+test_params = np.array([0.0, 0.0], requires_grad=True)
+print("Energy at params", test_params, "=", vqe_circuit(test_params))
+
+def cost(params):
+    """VQE cost function: expectation value of H."""
+    return vqe_circuit(params)
+
+# Initial parameters (random or chosen)
+params = np.random.uniform(0, 2 * np.pi, 2, requires_grad=True)
+
+opt = qml.GradientDescentOptimizer(stepsize=0.4)
+num_steps = 50
+
+print("Initial params:", params)
+print("Initial energy:", cost(params))
+
+for n in range(num_steps):
+    params, energy = opt.step_and_cost(cost, params)
+
+    if n % 10 == 0:
+        print(f"Step {n:2d} | Energy = {energy:.6f} | Params = {params}")
+
+print("\nOptimisation finished.")
+print("Final energy:", cost(params))
+print("Final params:", params)
 
 
-# --- 6. Optimize ---
 
-def finite_diff_grad(theta_scalar, h=1e-3):
-    # central difference
-    return (energy(theta_scalar + h) - energy(theta_scalar - h)) / (2 * h)
 
-theta = 0.0                      # initial value
-lr = 0.4                         # learning rate
-max_steps = 50
-
-for n in range(max_steps):
-    e = energy(theta)
-    g = finite_diff_grad(theta)
-
-    theta_new = theta - lr * g
-    print(f"Step {n:2d} | E = {e:.8f} Ha | theta = {theta:.6f} | grad ≈ {g:.6f}")
-
-    if abs(theta_new - theta) < 1e-6:
-        theta = theta_new
-        break
-
-    theta = theta_new
-
-final_energy = energy(theta)
-print("\nOptimized theta (FD):", theta)
-print("Optimized energy (FD):", final_energy)

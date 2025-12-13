@@ -26,4 +26,4 @@ with PREPARE(3) as p:
 INSPECT_IR(p)
 print(p())
 DRAW(p, "ascii")
-GRAPH(p, "statevector")
+GRAPH(p, "probs")

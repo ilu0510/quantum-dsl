@@ -21,4 +21,4 @@ with PREPARE(3) as p:
 print(INSPECT_IR(p, "dict"))
 
 
-#GRAPH(p, "probs")
+GRAPH(p, "probs")
