@@ -27,7 +27,8 @@ quantum-dsl/
     ├── Grover.py      # Grover's search algorithm
     ├── DJ2Bit.py      # Deutsch-Jozsa algorithm
     ├── QFT.py         # Quantum Fourier Transform
-    └── Qtele.py       # Quantum teleportation
+    ├── Qtele.py       # Quantum teleportation
+    └── VQE.py         # Variational Quantum Eigensolver
 ```
 
 ## Requirements
