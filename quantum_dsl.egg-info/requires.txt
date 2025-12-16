@@ -1,3 +1,0 @@
-pennylane
-matplotlib
-numpy

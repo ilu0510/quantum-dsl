@@ -4,7 +4,7 @@ from .ir import *
 from .compiler import *
 import pennylane as qml
 from matplotlib import pyplot as plt
-import numpy as np
+from pennylane import numpy as np
 from pprint import pformat
 from pennylane import qchem
 
@@ -272,6 +272,9 @@ def BELL_PSI_MINUS(a, b):
     current_program().append(Op("Z", [b]))
     current_program().append(Op("X", [b]))
 
+def _is_numeric(x):
+    return isinstance(x, (int, float, np.number)) or hasattr(x, "__array__")
+
 class _Gate:
 
     #---Single Qubit Gtaes---
@@ -303,16 +306,16 @@ class _Gate:
             current_program().append(Op("SWAP", [a, b]))
     
     #---Rotation Gates---
-    def RX(self, theta, w): 
-        if not isinstance(theta, (int, float)):
+    def RX(self, theta, w):
+        if not _is_numeric(theta):
             raise TypeError("RX expects a numeric angle.")
         current_program().append(Op("RX", [w], params=(theta,)))
     def RY(self, theta, w):
-        if not isinstance(theta, (int, float)):
+        if not _is_numeric(theta):
             raise TypeError("RY expects a numeric angle.")
         current_program().append(Op("RY", [w], params=(theta,)))
     def RZ(self, theta, w):
-        if not isinstance(theta, (int, float)):
+        if not _is_numeric(theta):
             raise TypeError("RZ expects a numeric angle.")
         current_program().append(Op("RZ", [w], params=(theta,)))
 
@@ -366,6 +369,15 @@ class _Gate:
 
 gate = _Gate()
 
+# --- Observables ---
+class _Obs:
+    def X(self, w): return qml.PauliX(w)
+    def Y(self, w): return qml.PauliY(w)
+    def Z(self, w): return qml.PauliZ(w)
+    def H(self, w): return qml.Hadamard(w)
+
+obs = _Obs()
+
 
 # ---BLOCKS---
 
@@ -387,6 +399,57 @@ def USE(name, *args, **kwargs):
     if fn is None:
         raise ValueError(f"Unknown BLOCK {name}")
     fn(*args, **kwargs)
+
+# --- Optimise --- 
+
+from pennylane import numpy as np
+import matplotlib.pyplot as plt
+
+def OPTIMISE(
+    energy_fn,
+    init_params,
+    steps=30,
+    stepsize=0.2,
+    eps=1e-6,
+    history=False,
+    graph=False,
+):
+
+    params = np.array(init_params, dtype=float)
+    if params.ndim == 0:
+        params = params.reshape((1,))
+
+    energies = []
+
+    def central_diff(f, x):
+        g = np.zeros_like(x)
+        for i in range(len(x)):
+            x_fwd = x.copy(); x_fwd[i] += eps
+            x_bwd = x.copy(); x_bwd[i] -= eps
+            g[i] = (f(x_fwd) - f(x_bwd)) / (2 * eps)
+        return g
+
+    for s in range(steps):
+        E = float(energy_fn(params))
+        energies.append(E)
+
+        if history:
+            print(f"Step {s:3d} | Energy = {E: .6f} | Params = {params}")
+
+        g = central_diff(energy_fn, params)
+        params = params - stepsize * g
+
+    final_energy = float(energy_fn(params))
+
+    if graph:
+        plt.plot(range(len(energies)), energies)
+        plt.xlabel("Step")
+        plt.ylabel("Energy")
+        plt.title("Energy vs Optimisation Step")
+        plt.show()
+
+    return params, final_energy
+
 
 
 # --- Inspect IR ---

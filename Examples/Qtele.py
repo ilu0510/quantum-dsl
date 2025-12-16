@@ -11,14 +11,18 @@ def teleport(state):
     gate.CNOT([1,2])
     gate.CZ([0,2])
     
-
 state_to_teleport = np.array([1/np.sqrt(2), 1/np.sqrt(2)])
 
 with PREPARE(3) as p:
     USE("teleport", state=state_to_teleport)
-    MEASURE("probs", 2)
+    MEASURE("state", 2)
 
 print(INSPECT_IR(p, "dict"))
+GRAPH(p, "statevector")
+DRAW(p, 'ascii')
 
 
-GRAPH(p, "probs")
+
+
+
+

@@ -32,7 +32,7 @@ quantum-dsl/
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.11 (PennyLane has not updated past at the time of development)
 - PennyLane
 - NumPy
 - Matplotlib

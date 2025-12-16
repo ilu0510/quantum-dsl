@@ -1,44 +1,22 @@
-import pennylane as qml
-from pennylane import numpy as np
+#Variational Quantum Eigensolver
+from dsl import *
 
-dev = qml.device("default.qubit", wires = 2)
+H = (obs.X(0) @ obs.X(1))
 
-hami = qml.PauliZ(0) @ qml.PauliZ(1)
+@BLOCK("vqe_ansatz")
+def vqe_ansatz(params):
+    theta0 = params[0]
+    gate.RY(theta0, 0)
+    gate.CNOT((0, 1))
 
-@qml.qnode(dev)
-def vqe_circuit(params):
-    qml.RY(params[0], wires = 0)
-    qml.RY(params[1], wires = 1)
-    qml.CNOT(wires=[0,1])
+def energy(theta):
+    with PREPARE(2) as p:
+        USE("vqe_ansatz", theta)
+        MEASURE("expval", hamiltonian=H)
+    return p()
 
-    return qml.expval(hami)
+best_params, best_E = OPTIMISE(energy_fn=energy, init_params=[0.1], steps=30, stepsize=0.4, eps=1e-6, history=True, graph=True,)
 
-test_params = np.array([0.0, 0.0], requires_grad=True)
-print("Energy at params", test_params, "=", vqe_circuit(test_params))
-
-def cost(params):
-    """VQE cost function: expectation value of H."""
-    return vqe_circuit(params)
-
-# Initial parameters (random or chosen)
-params = np.random.uniform(0, 2 * np.pi, 2, requires_grad=True)
-
-opt = qml.GradientDescentOptimizer(stepsize=0.4)
-num_steps = 50
-
-print("Initial params:", params)
-print("Initial energy:", cost(params))
-
-for n in range(num_steps):
-    params, energy = opt.step_and_cost(cost, params)
-
-    if n % 10 == 0:
-        print(f"Step {n:2d} | Energy = {energy:.6f} | Params = {params}")
-
-print("\nOptimisation finished.")
-print("Final energy:", cost(params))
-print("Final params:", params)
-
-
-
+print("Final energy:", best_E)
+print("Final params:", best_params)
 
