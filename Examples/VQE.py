@@ -15,7 +15,13 @@ def energy(theta):
         MEASURE("expval", hamiltonian=H)
     return p()
 
-best_params, best_E = OPTIMISE(energy_fn=energy, init_params=[0.1], steps=30, stepsize=0.4, eps=1e-6, history=True, graph=True,)
+best_params, best_E = OPTIMISE(energy_fn=energy,
+                               init_params=[0.1], 
+                               steps=15, 
+                               stepsize=0.5, 
+                               eps=1e-6, 
+                               history=True, 
+                               graph=True,)
 
 print("Final energy:", best_E)
 print("Final params:", best_params)

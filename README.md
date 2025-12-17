@@ -1,12 +1,14 @@
 ## DSL-Transpiler-for-PennyLane
-A Python-based Domain-Specific Language (DSL) for quantum computing that simplifies quantum circuit design with an intuitive, declarative syntax. Built on PennyLane, it provides high-level abstractions for quantum operations, reusable circuit blocks, and visualisation tools. This was developed as a part of my internship experience with the Institue of Applied Artificial Intelligence & Robotics (IAAIR).
+A Python-based Domain-Specific Language (DSL) for quantum computing that simplifies quantum circuit design with an intuitive, declarative syntax. Built on PennyLane, it provides high-level abstractions for quantum operations, reusable circuit blocks, optimisation, and visualisation tools. This was developed as a part of my internship experience with the Institue of Applied Artificial Intelligence & Robotics (IAAIR).
 
 ## Features
 
 - **High-level abstractions**: Simple functions to abstract away gate-level details
 - **Reusable blocks**: Define circuit fragments with `@BLOCK` and reuse with `USE()`
 - **Multiple gate types**: Single-qubit, two-qubit, rotation, and multi-controlled gates
+- **Multiple observable types**: Able to compute observable-specific measurements
 - **IR inspection**: View the intermediate representation with `INSPECT_IR()` to understand circuit compilation
+- **Optimisation**: High-Level optimisation control for variational circuits. 
 - **Visualization**: ASCII and matplotlib circuit drawings with `DRAW()`
 - **Result graphing**: Histogram and statevector visualisations with `GRAPH()`
 - **Built on PennyLane**: Leverages a powerful quantum computing framework
@@ -23,7 +25,7 @@ quantum-dsl/
 │   ├── program.py     # Program management
 │   ├── ir.py          # Intermediate representation
 │   └── compiler.py    # PennyLane compiler
-└── Examples/
+└── Examples/          # Algorithms expressed in PennyLane and DSL. 
     ├── Grover.py      # Grover's search algorithm
     ├── DJ2Bit.py      # Deutsch-Jozsa algorithm
     ├── QFT.py         # Quantum Fourier Transform
@@ -33,7 +35,7 @@ quantum-dsl/
 
 ## Requirements
 
-- Python 3.11 (PennyLane has not updated past at the time of development)
+- Python 3.11 (PennyLane has not updated past 3.11 at the time of development)
 - PennyLane
 - NumPy
 - Matplotlib

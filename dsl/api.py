@@ -67,9 +67,8 @@ def MOLECULAR_HAMILTONIAN(
     outpath=".",
     wires=None,
     args=None,
-    convert_tol=1e12,  # docs say default is 1e12 * machine epsilon
+    convert_tol=1e12,  
 ):
-    # Molecule: use basis_name, not basis
     molecule = qchem.Molecule(
         symbols,
         geometry,
@@ -348,19 +347,16 @@ class _Gate:
 
         #---Controlled Rotation Gates---
     def CRX(self, theta, control, target):
-        """Controlled RX rotation"""
         if not _is_numeric(theta):
             raise TypeError("CRX expects a numeric angle.")
         current_program().append(Op("CRX", [control, target], params=(theta,)))
 
     def CRY(self, theta, control, target):
-        """Controlled RY rotation"""
         if not _is_numeric(theta):
             raise TypeError("CRY expects a numeric angle.")
         current_program().append(Op("CRY", [control, target], params=(theta,)))
 
     def CRZ(self, theta, control, target):
-        """Controlled RZ rotation"""
         if not _is_numeric(theta):
             raise TypeError("CRZ expects a numeric angle.")
         current_program().append(Op("CRZ", [control, target], params=(theta,)))
@@ -401,9 +397,6 @@ def USE(name, *args, **kwargs):
     fn(*args, **kwargs)
 
 # --- Optimise --- 
-
-from pennylane import numpy as np
-import matplotlib.pyplot as plt
 
 def OPTIMISE(
     energy_fn,
