@@ -94,8 +94,8 @@ def MOLECULAR_HAMILTONIAN(
 # --- Results and Visualisation ---
 
 def MEASURE(kind, *wires, **kwargs):
-    if kind not in ("state", "probs", "expval"):
-        raise ValueError("MEASURE kind must be 'state', 'probs', or 'expval'.")
+    if kind not in ("state", "probs", "expval", "density matrix"):
+        raise ValueError("MEASURE kind must be 'state', 'probs', 'expval', or 'density matrix'.")
 
     # --- PROBABILITY MEASURE ---
     if kind == "probs":
@@ -109,25 +109,39 @@ def MEASURE(kind, *wires, **kwargs):
         # Case 1: User supplied a full Hamiltonian
         hamiltonian = kwargs.get("hamiltonian")
         if hamiltonian is not None:
-            # No need for wires; Hamiltonians define their own wires
             current_program().append(Measure(kind, None, operator=hamiltonian))
             return
 
         # Case 2: Simple observable like X, Y, Z, H
         if not wires or len(wires) != 1:
-            raise ValueError("MEASURE('expval', wire) expects exactly one wire when no Hamiltonian is provided.")
-        
+            raise ValueError(
+                "MEASURE('expval', wire) expects exactly one wire when no Hamiltonian is provided."
+            )
+
         observable = kwargs.get("observable")
         if observable not in ("X", "Y", "Z", "H"):
             raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
-        
+
         current_program().append(Measure(kind, wires, observable=observable))
         return
 
     # --- STATEVECTOR MEASURE ---
     if kind == "state":
         current_program().append(Measure(kind, wires))
-        return    
+        return
+
+    # --- DENSITY MATRIX MEASURE ---
+    if kind == "density matrix":
+        if wires:
+            for w in wires:
+                if not isinstance(w, int):
+                    raise TypeError("MEASURE('density matrix', ...) expects integer wire indices.")
+            current_program().append(Measure(kind, wires))
+        else:
+            # Interpret omitted wires as "all wires" (compiler will expand using circuit width)
+            current_program().append(Measure(kind, None))
+        return
+    
 
 def DRAW(circ, draw_type="ascii"):
     if draw_type not in ("ascii", "diagram"):

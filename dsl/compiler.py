@@ -64,6 +64,9 @@ def compile_to_pennylane(ir):
                 else:
                     obs_gate = PL_NAME_MAP[m.observable]
                     returns.append(qml.expval(obs_gate(wires=m.wires)))
+            elif m.kind == "density matrix":
+                wires = list(range(ir.width)) if m.wires is None else list(m.wires)
+                returns.append(qml.density_matrix(wires=wires))
             else:
                 print(f"RuntimeError: Unsupported MEASURE kind: {m.kind}")
 
