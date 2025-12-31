@@ -2,30 +2,30 @@
 
 # ---PennyLane---
 
-# import pennylane as qml
-# import numpy as np
+import pennylane as qml
+import numpy as np
 
 
-# def teleport(state):
-#     qml.StatePrep(state, wires=[0])
-#     qml.Hadamard(wires=1)
-#     qml.CNOT(wires=[1, 2])
-#     qml.CNOT(wires=[0, 1])
-#     qml.Hadamard(wires=0)
-#     qml.CNOT(wires=[1, 2])
-#     qml.CZ(wires=[0, 2])
+def teleport(state):
+    qml.StatePrep(state, wires=[0])
+    qml.Hadamard(wires=1)
+    qml.CNOT(wires=[1, 2])
+    qml.CNOT(wires=[0, 1])
+    qml.Hadamard(wires=0)
+    qml.CNOT(wires=[1, 2])
+    qml.CZ(wires=[0, 2])
 
-# state_to_teleport = np.array([1 / np.sqrt(2), 1 / np.sqrt(2)])
+state_to_teleport = np.array([1 / np.sqrt(2), 1 / np.sqrt(2)])
 
-# dev = qml.device("default.qubit", wires=3)
+dev = qml.device("default.qubit", wires=3)
 
-# @qml.qnode(dev)
-# def circuit():
-#     teleport(state_to_teleport)
-#     return qml.density_matrix(2)
+@qml.qnode(dev)
+def circuit():
+    teleport(state_to_teleport)
+    return qml.density_matrix(2)
 
-# rho = circuit()
-# print(rho)
+rho = circuit()
+print(rho)
 
 
 
