@@ -1,46 +1,90 @@
 # #Variational Quantum Eigensolver
+import pennylane as qml
+from pennylane import numpy as np
+import matplotlib.pyplot as plt
 
-# #---PennyLane---
-# import pennylane as qml
-# from pennylane import numpy as np
-# import matplotlib.pyplot as plt
+#Device
+dev = qml.device("default.qubit", wires=2)
 
-# dev = qml.device("default.qubit", wires=2)
-# H = qml.PauliX(0) @ qml.PauliX(1)
+#Hamiltonian
+H = qml.PauliX(0) @ qml.PauliX(1)
 
-# @qml.qnode(dev)
-# def vqe_circuit(params):
-#     qml.RY(params[0], wires=0)
-#     qml.CNOT(wires=[0, 1])
-#     return qml.expval(H)
+#Ansatz 
+def ansatz(params):
+    qml.RY(params[0], wires=0)
+    qml.CNOT(wires=[0, 1])
 
-# def cost(params):
-#     return vqe_circuit(params)
+#QNode
+@qml.qnode(dev)
+def vqe_all(params):
+    ansatz(params)
+    return (
+        qml.expval(H),
+        qml.state(),
+        qml.probs(wires=[0, 1])
+    )
 
-# # Optimisation loop
-# params = np.array([0.1], requires_grad=True)
-# opt = qml.GradientDescentOptimizer(stepsize=0.4)
-# steps = 30
+# For optimisation, we only use the energy
+def cost(params):
+    energy, _, _ = vqe_all(params)
+    return energy
 
-# energies = []
+# Optimisation loop
+params = np.array([0.1], requires_grad=True)
+opt = qml.GradientDescentOptimizer(stepsize=0.4)
+steps = 30
+energies = []
+for i in range(steps):
+    params = opt.step(cost, params)
+    energy = cost(params)
+    energies.append(float(energy))
+    print(f"Step {i:02d} | Energy = {energy:.8f} | Params = {params}")
+    
+final_energy, final_state, final_probs = vqe_all(params)
+print("\nFinal energy:", final_energy)
+print("Final params:", params)
 
-# for i in range(steps):
-#     params = opt.step(cost, params)     
-#     energy = cost(params)                
-#     energies.append(float(energy))
+# Plot: Energy vs optimisation step
+plt.figure()
+plt.plot(range(len(energies)), energies, marker="o")
+plt.xlabel("Step")
+plt.ylabel("Energy")
+plt.title("Energy vs Optimisation Step")
+plt.grid(True)
+plt.show()
 
-#     print(f"Step {i:02d} | Energy = {energy:.8f} | Params = {params}")
+labels = ["00", "01", "10", "11"]
 
-# print("\nFinal energy:", cost(params))
-# print("Final params:", params)
+#Plot: Statevector
+real_parts = np.real(final_state)
+imag_parts = np.imag(final_state)
 
-# plt.figure()
-# plt.plot(range(len(energies)), energies, marker="o")
-# plt.xlabel("Step")
-# plt.ylabel("Energy")
-# plt.title("Energy vs Optimisation Step")
-# plt.grid(True)
-# plt.show()
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(16, 8), sharex=True)
+#Real part
+ax1.bar(labels, real_parts)
+ax1.set_title("Real Part of Statevector", fontsize=22)
+ax1.set_xlabel("Basis States", fontsize=16)
+ax1.set_ylabel("Real Amplitude", fontsize=16)
+ax1.tick_params(axis="both", labelsize=14)
+
+#Imag part
+ax2.bar(labels, imag_parts)
+ax2.set_title("Imaginary Part of Statevector", fontsize=22)
+ax2.set_xlabel("Basis States", fontsize=16)
+ax2.set_ylabel("Imaginary Amplitude", fontsize=16)
+ax2.tick_params(axis="both", labelsize=14)
+
+plt.tight_layout()
+plt.show()
+
+#Plot: Probabilities
+plt.figure(figsize=(8, 4))
+plt.bar(labels, final_probs)
+plt.xlabel("Basis State")
+plt.ylabel("Probability")
+plt.title("Final Measurement Probabilities")
+plt.grid(True)
+plt.show()
 
 
 

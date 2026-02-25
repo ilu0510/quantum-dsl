@@ -1,7 +1,10 @@
 #api.py
-from .program import Program, current_program
+from .program import Program, current_program, push_block, pop_block
 from .ir import *
 from .compiler import *
+import json
+import re, os
+from datetime import datetime
 import pennylane as qml
 from matplotlib import pyplot as plt
 from pennylane import numpy as np
@@ -97,49 +100,37 @@ def MEASURE(kind, *wires, **kwargs):
     if kind not in ("state", "probs", "expval", "density matrix"):
         raise ValueError("MEASURE kind must be 'state', 'probs', 'expval', or 'density matrix'.")
 
-    # --- PROBABILITY MEASURE ---
     if kind == "probs":
         if not wires:
             raise ValueError("MEASURE('probs', ...) expects at least one wire.")
-        current_program().append(Measure(kind, wires))
+        current_program().append(Measure(kind, wires, basis="Z"))
         return
 
-    # --- EXPECTATION VALUE ---
     if kind == "expval":
-        # Case 1: User supplied a full Hamiltonian
         hamiltonian = kwargs.get("hamiltonian")
         if hamiltonian is not None:
-            current_program().append(Measure(kind, None, operator=hamiltonian))
+            current_program().append(Measure(kind, None, operator=hamiltonian, basis="operator-defined"))
             return
 
-        # Case 2: Simple observable like X, Y, Z, H
         if not wires or len(wires) != 1:
-            raise ValueError(
-                "MEASURE('expval', wire) expects exactly one wire when no Hamiltonian is provided."
-            )
+            raise ValueError("MEASURE('expval', wire) expects exactly one wire when no Hamiltonian is provided.")
 
         observable = kwargs.get("observable")
         if observable not in ("X", "Y", "Z", "H"):
             raise ValueError("MEASURE('expval', ...) requires observable='X', 'Y', 'Z', or 'H'.")
 
-        current_program().append(Measure(kind, wires, observable=observable))
+        current_program().append(Measure(kind, wires, observable=observable, basis=observable))
         return
 
-    # --- STATEVECTOR MEASURE ---
     if kind == "state":
-        current_program().append(Measure(kind, wires))
+        current_program().append(Measure(kind, wires if wires else None, basis="N/A"))
         return
 
-    # --- DENSITY MATRIX MEASURE ---
     if kind == "density matrix":
         if wires:
-            for w in wires:
-                if not isinstance(w, int):
-                    raise TypeError("MEASURE('density matrix', ...) expects integer wire indices.")
-            current_program().append(Measure(kind, wires))
+            current_program().append(Measure(kind, wires, basis="N/A"))
         else:
-            # Interpret omitted wires as "all wires" (compiler will expand using circuit width)
-            current_program().append(Measure(kind, None))
+            current_program().append(Measure(kind, None, basis="N/A"))
         return
     
 
@@ -404,11 +395,15 @@ def BLOCK(name=None):
         return fn
     return _register
 
-def USE(name, *args, **kwargs): 
+def USE(name, *args, **kwargs):
     fn = _BLOCKS.get(name)
     if fn is None:
         raise ValueError(f"Unknown BLOCK {name}")
-    fn(*args, **kwargs)
+    push_block(name)
+    try:
+        fn(*args, **kwargs)
+    finally:
+        pop_block()
 
 # --- Optimise --- 
 
@@ -460,33 +455,88 @@ def OPTIMISE(
 
 # --- Inspect IR ---
 
-def INSPECT_IR(program, format="dict"):
+#Convert non-JSON-serializable objects into JSON-safe types
+def _to_jsonable(x):
+    """Convert common non-JSON-serializable objects into JSON-safe types."""
+    try:
+        import numpy as _np
+        if isinstance(x, (_np.integer,)):
+            return int(x)
+        if isinstance(x, (_np.floating,)):
+            return float(x)
+        if isinstance(x, (_np.ndarray,)):
+            return x.tolist()
+    except Exception:
+        pass
+
+    if hasattr(x, "tolist"):
+        try:
+            return x.tolist()
+        except Exception:
+            pass
+    return str(x)
+
+
+def _slugify(name: str) -> str:
+    name = name.strip().lower()
+    # Replace symbols that tend to appear in names
+    name = name.replace("&", "and")
+    # Convert non-alphanumeric to underscores
+    name = re.sub(r"[^a-z0-9]+", "_", name)
+    # Collapse multiple underscores and trim
+    name = re.sub(r"_+", "_", name).strip("_")
+    return name or "ir"
+
+
+def INSPECT_IR(program, format="dict", json_path=None, name=None, print_output=True):
     if format not in ("dict", "text"):
         raise ValueError("INSPECT_IR 'format' must be 'dict' or 'text'.")
-    if format == "dict":
-        ir_data = {
-            "qubits": program.ir.width,
-            "operations": [
-                {
-                    "op": op.name if hasattr(op, "name") else "MEASURE",
-                    "wires": op.wires,
-                    "params": list(op.params) if hasattr(op, "params") else [],
-                    "kind": op.kind if hasattr(op, "kind") else None
-                }
-                for op in program.ir.ops
-            ]
-        }
-        return pformat(ir_data, indent=2, sort_dicts=False) 
-    elif format == "text":
+
+    fields = program.ir.extract_fields()
+
+    if format == "text":
         lines = []
-        lines.append(f"Qubits: {program.ir.width}")
-        lines.append("\nInstructions:")
-        for i, op in enumerate(program.ir.ops, 1):
-            if hasattr(op, "name"):
-                if op.params:
-                    lines.append(f"  {i}. {op.name}(wires={op.wires}, params={op.params})")
-                else:
-                    lines.append(f"  {i}. {op.name}(wires={op.wires})")
+        lines.append(f"Circuit width: {fields['Circuit width']}")
+        lines.append(f"Wire map: {fields['Wire map']}")
+        lines.append("\nOrdered ops:")
+        for entry in fields["Ordered ops"]:
+            if entry["type"] == "op":
+                lines.append(
+                    f"  {entry['index']}. {entry['name']}(wires={entry['wires']}, params={entry['params']})"
+                    + (f" origin={entry['origin']}" if entry.get("origin") else "")
+                )
             else:
-                lines.append(f"  {i}. MEASURE(kind='{op.kind}', wires={op.wires})")
-        return "\n".join(lines)
+                lines.append(
+                    f"  {entry['index']}. MEASURE(kind={entry['kind']}, wires={entry['wires']}, basis={entry['basis']})"
+                    + (f" origin={entry['origin']}" if entry.get("origin") else "")
+                )
+        lines.append("\nMeasurement intent:")
+        for m in fields["Measurement intent"]:
+            lines.append(f"  kind={m['kind']} wires={m['wires']} basis={m['basis']}")
+        lines.append("\nObservable intent:")
+        for o in fields["Observable intent"]:
+            lines.append(f"  {o}")
+
+        text = "\n".join(lines)
+        if print_output:
+            print(text)
+        return text
+
+    # format == "dict"
+    if print_output:
+        print(pformat(fields, indent=2, sort_dicts=False))
+
+    # Decide file path
+    if json_path is None:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")  # includes microseconds
+        if name:
+            slug = _slugify(name)
+            json_path = os.path.join(".", f"ir_{ts}_{slug}.json")
+        else:
+            json_path = os.path.join(".", f"ir_{ts}.json")
+
+    # Write JSON
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(fields, f, indent=2, default=_to_jsonable)
+
+    return fields, json_path
