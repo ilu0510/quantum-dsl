@@ -115,6 +115,7 @@ print(p())
 ```
 
 ## Project Structure
+```
 quantum-dsl/
 ├── .gitignore
 ├── README.md
@@ -134,6 +135,7 @@ quantum-dsl/
 ├── ir_inspection_tests/ # IR inspection and benchmarking
 ├── rq5_ir_min_logs/     # IR timing experiment logs
 └── rq5_qft_scaling_logs/# Scaling experiment outputs
+```
 
 ## Requirements 
  - Python 3.11 recommended (PennyLane compatibility)
