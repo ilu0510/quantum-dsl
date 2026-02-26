@@ -1,6 +1,6 @@
 # program.py
-from .ir import *
-from .compiler import *
+from .ir import IRProgram
+from .compiler import compile_to_pennylane, compile_to_qiskit
 
 _stack = []
 _block_stack = []
@@ -23,16 +23,22 @@ class Program:
     def __init__(self, width):
         self.ir = IRProgram(width=width)
         self._compiled = None
+        self._backend = None
 
     def append(self, op_or_meas):
-        # NEW: stamp provenance at append-time
         if hasattr(op_or_meas, "origin") and not op_or_meas.origin:
             op_or_meas.origin = _current_origin()
         self.ir.ops.append(op_or_meas)
 
-    def compile(self, shots=None):
+    def compile(self, shots=None, backend="pennylane"):
         self.ir.canon()
-        self._compiled = compile_to_pennylane(self.ir)
+        self._backend = backend
+        if backend == "pennylane":
+            self._compiled = compile_to_pennylane(self.ir)
+        elif backend == "qiskit":
+            self._compiled = compile_to_qiskit(self.ir, shots=shots)
+        else:
+            raise ValueError("backend must be 'pennylane' or 'qiskit'")
         return self._compiled
 
     def __call__(self, *args, **kwargs):

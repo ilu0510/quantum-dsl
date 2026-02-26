@@ -1,0 +1,2702 @@
+[
+  {
+    "n_qubits": 2,
+    "repetition": 0,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08560006972402334,
+    "t_canon_ms": 0.010299962013959885,
+    "peak_mem_kb": 3.548828125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 1,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05949998740106821,
+    "t_canon_ms": 0.0066999346017837524,
+    "peak_mem_kb": 3.337890625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 2,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05049991887062788,
+    "t_canon_ms": 0.006200047209858894,
+    "peak_mem_kb": 3.103515625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 3,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.046900007873773575,
+    "t_canon_ms": 0.005700043402612209,
+    "peak_mem_kb": 2.845703125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 4,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.044599990360438824,
+    "t_canon_ms": 0.005500041879713535,
+    "peak_mem_kb": 2.611328125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 5,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.044599990360438824,
+    "t_canon_ms": 0.005600042641162872,
+    "peak_mem_kb": 2.486328125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 6,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.04179996903985739,
+    "t_canon_ms": 0.005300040356814861,
+    "peak_mem_kb": 2.431640625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 7,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.048200017772614956,
+    "t_canon_ms": 0.016200006939470768,
+    "peak_mem_kb": 2.384765625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 8,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.04499999340623617,
+    "t_canon_ms": 0.005600042641162872,
+    "peak_mem_kb": 2.361328125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 9,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.04020007327198982,
+    "t_canon_ms": 0.005400041118264198,
+    "peak_mem_kb": 2.337890625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 10,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03899994771927595,
+    "t_canon_ms": 0.005200039595365524,
+    "peak_mem_kb": 2.314453125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 11,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03830005880445242,
+    "t_canon_ms": 0.00509992241859436,
+    "peak_mem_kb": 2.291015625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 12,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.037899939343333244,
+    "t_canon_ms": 0.005400041118264198,
+    "peak_mem_kb": 2.267578125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 13,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.037800054997205734,
+    "t_canon_ms": 0.005299923941493034,
+    "peak_mem_kb": 2.244140625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 14,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03779993858188391,
+    "t_canon_ms": 0.005300040356814861,
+    "peak_mem_kb": 2.220703125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 15,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03839994315057993,
+    "t_canon_ms": 0.005200039595365524,
+    "peak_mem_kb": 2.173828125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 16,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.037800054997205734,
+    "t_canon_ms": 0.005299923941493034,
+    "peak_mem_kb": 2.150390625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 17,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03759993705898523,
+    "t_canon_ms": 0.005200039595365524,
+    "peak_mem_kb": 2.126953125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 18,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03759993705898523,
+    "t_canon_ms": 0.005300040356814861,
+    "peak_mem_kb": 2.103515625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 19,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03730005118995905,
+    "t_canon_ms": 0.005299923941493034,
+    "peak_mem_kb": 2.080078125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 20,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03629992716014385,
+    "t_canon_ms": 0.00500003807246685,
+    "peak_mem_kb": 2.056640625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 21,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03729993477463722,
+    "t_canon_ms": 0.005400041118264198,
+    "peak_mem_kb": 2.033203125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 22,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03670004662126303,
+    "t_canon_ms": 0.005200039595365524,
+    "peak_mem_kb": 2.009765625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 23,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03720005042850971,
+    "t_canon_ms": 0.005299923941493034,
+    "peak_mem_kb": 1.978515625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 24,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03679993096739054,
+    "t_canon_ms": 0.005300040356814861,
+    "peak_mem_kb": 1.962890625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 25,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0369000481441617,
+    "t_canon_ms": 0.004900037311017513,
+    "peak_mem_kb": 1.947265625
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 26,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03790005575865507,
+    "t_canon_ms": 0.005699926987290382,
+    "peak_mem_kb": 1.939453125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 27,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.040199956856667995,
+    "t_canon_ms": 0.005400041118264198,
+    "peak_mem_kb": 1.939453125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 28,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03820005804300308,
+    "t_canon_ms": 0.005199923180043697,
+    "peak_mem_kb": 1.939453125
+  },
+  {
+    "n_qubits": 2,
+    "repetition": 29,
+    "n_ops": 5,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.03729993477463722,
+    "t_canon_ms": 0.005200039595365524,
+    "peak_mem_kb": 1.939453125
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 0,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05519995465874672,
+    "t_canon_ms": 0.008399947546422482,
+    "peak_mem_kb": 3.0693359375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 1,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05259993486106396,
+    "t_canon_ms": 0.008400063961744308,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 2,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.052600051276385784,
+    "t_canon_ms": 0.008199946023523808,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 3,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05139992572367191,
+    "t_canon_ms": 0.00800006091594696,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 4,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0521000474691391,
+    "t_canon_ms": 0.008499948307871819,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 5,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0510999234393239,
+    "t_canon_ms": 0.008600065484642982,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 6,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05180004518479109,
+    "t_canon_ms": 0.008699949830770493,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 7,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.050699920393526554,
+    "t_canon_ms": 0.008800067007541656,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 8,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.051900045946240425,
+    "t_canon_ms": 0.008399947546422482,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 9,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0510999234393239,
+    "t_canon_ms": 0.008600065484642982,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 10,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05180004518479109,
+    "t_canon_ms": 0.008699949830770493,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 11,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.051200040616095066,
+    "t_canon_ms": 0.008499948307871819,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 12,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.056999968364834785,
+    "t_canon_ms": 0.008800067007541656,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 13,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.051600043661892414,
+    "t_canon_ms": 0.008299946784973145,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 14,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05059991963207722,
+    "t_canon_ms": 0.008600065484642982,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 15,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05250005051493645,
+    "t_canon_ms": 0.008599949069321156,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 16,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0518999295309186,
+    "t_canon_ms": 0.008600065484642982,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 17,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05240004975348711,
+    "t_canon_ms": 0.01109996810555458,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 18,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.051900045946240425,
+    "t_canon_ms": 0.008599949069321156,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 19,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.052699935622513294,
+    "t_canon_ms": 0.008900067768990993,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 20,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0513000413775444,
+    "t_canon_ms": 0.008699949830770493,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 21,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05159992724657059,
+    "t_canon_ms": 0.008200062438845634,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 22,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0521000474691391,
+    "t_canon_ms": 0.008299946784973145,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 23,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05180004518479109,
+    "t_canon_ms": 0.008399947546422482,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 24,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05250005051493645,
+    "t_canon_ms": 0.008600065484642982,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 25,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05330005660653114,
+    "t_canon_ms": 0.007999944500625134,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 26,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.052699935622513294,
+    "t_canon_ms": 0.008400063961744308,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 27,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05170004442334175,
+    "t_canon_ms": 0.00870006624609232,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 28,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.05110003985464573,
+    "t_canon_ms": 0.008699949830770493,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 3,
+    "repetition": 29,
+    "n_ops": 9,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0513000413775444,
+    "t_canon_ms": 0.00800006091594696,
+    "peak_mem_kb": 3.0224609375
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 0,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07430010009557009,
+    "t_canon_ms": 0.01370010431855917,
+    "peak_mem_kb": 4.58203125
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 1,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07189996540546417,
+    "t_canon_ms": 0.013899989426136017,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 2,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07029995322227478,
+    "t_canon_ms": 0.013599987141788006,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 3,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07049995474517345,
+    "t_canon_ms": 0.013499986380338669,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 4,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07060007192194462,
+    "t_canon_ms": 0.012999982573091984,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 5,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07090007420629263,
+    "t_canon_ms": 0.013500102795660496,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 6,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07039995398372412,
+    "t_canon_ms": 0.013899989426136017,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 7,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07079995702952147,
+    "t_canon_ms": 0.013399985618889332,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 8,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07409998215734959,
+    "t_canon_ms": 0.01309998333454132,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 9,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06880005821585655,
+    "t_canon_ms": 0.013199984095990658,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 10,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07050007116049528,
+    "t_canon_ms": 0.013499986380338669,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 11,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07059995550662279,
+    "t_canon_ms": 0.013399985618889332,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 12,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07049995474517345,
+    "t_canon_ms": 0.01379998866468668,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 13,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07209996692836285,
+    "t_canon_ms": 0.013699987903237343,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 14,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07100007496774197,
+    "t_canon_ms": 0.013999990187585354,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 15,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09890005458146334,
+    "t_canon_ms": 0.01309998333454132,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 16,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07040007039904594,
+    "t_canon_ms": 0.01309998333454132,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 17,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06980006583034992,
+    "t_canon_ms": 0.01200009137392044,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 18,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07239996921271086,
+    "t_canon_ms": 0.013999990187585354,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 19,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07099995855242014,
+    "t_canon_ms": 0.013699987903237343,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 20,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06989995017647743,
+    "t_canon_ms": 0.013699987903237343,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 21,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06990006659179926,
+    "t_canon_ms": 0.013399985618889332,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 22,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06970006506890059,
+    "t_canon_ms": 0.012399978004395962,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 23,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.06970006506890059,
+    "t_canon_ms": 0.012299977242946625,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 24,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07030006963759661,
+    "t_canon_ms": 0.01379998866468668,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 25,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07019995246082544,
+    "t_canon_ms": 0.013500102795660496,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 26,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07019995246082544,
+    "t_canon_ms": 0.01379998866468668,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 27,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07049995474517345,
+    "t_canon_ms": 0.013199984095990658,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 28,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.07079995702952147,
+    "t_canon_ms": 0.013299984857439995,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 4,
+    "repetition": 29,
+    "n_ops": 15,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11159991845488548,
+    "t_canon_ms": 0.01409999094903469,
+    "peak_mem_kb": 4.51171875
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 0,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09949994273483753,
+    "t_canon_ms": 0.019000028260052204,
+    "peak_mem_kb": 6.1728515625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 1,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0923000043258071,
+    "t_canon_ms": 0.018600025214254856,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 2,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09180000051856041,
+    "t_canon_ms": 0.019000028260052204,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 3,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08999998681247234,
+    "t_canon_ms": 0.018400023691356182,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 4,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08979998528957367,
+    "t_canon_ms": 0.01810002140700817,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 5,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08829997386783361,
+    "t_canon_ms": 0.018000020645558834,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 6,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08699996396899223,
+    "t_canon_ms": 0.018600025214254856,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 7,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09220000356435776,
+    "t_canon_ms": 0.017900019884109497,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 8,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08859997615218163,
+    "t_canon_ms": 0.018300022929906845,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 9,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08809997234493494,
+    "t_canon_ms": 0.018000020645558834,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 10,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08880009409040213,
+    "t_canon_ms": 0.01780001912266016,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 11,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08899997919797897,
+    "t_canon_ms": 0.01810002140700817,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 12,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08859997615218163,
+    "t_canon_ms": 0.01810002140700817,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 13,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08849997539073229,
+    "t_canon_ms": 0.018300022929906845,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 14,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08770008571445942,
+    "t_canon_ms": 0.01659989356994629,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 15,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0926000066101551,
+    "t_canon_ms": 0.01819990575313568,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 16,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08819997310638428,
+    "t_canon_ms": 0.018300022929906845,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 17,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08839997462928295,
+    "t_canon_ms": 0.017700018361210823,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 18,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08760008495301008,
+    "t_canon_ms": 0.018399907276034355,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 19,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.089599983766675,
+    "t_canon_ms": 0.017200014553964138,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 20,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09210000280290842,
+    "t_canon_ms": 0.017900019884109497,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 21,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08839997462928295,
+    "t_canon_ms": 0.01810002140700817,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 22,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08869997691363096,
+    "t_canon_ms": 0.017400016076862812,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 23,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08840009104460478,
+    "t_canon_ms": 0.018299906514585018,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 24,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.09059999138116837,
+    "t_canon_ms": 0.01889991108328104,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 25,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08809997234493494,
+    "t_canon_ms": 0.018300022929906845,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 26,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08859997615218163,
+    "t_canon_ms": 0.01850002445280552,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 27,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08760008495301008,
+    "t_canon_ms": 0.018799910321831703,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 28,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.08829997386783361,
+    "t_canon_ms": 0.01810002140700817,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 5,
+    "repetition": 29,
+    "n_ops": 21,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.0887999776750803,
+    "t_canon_ms": 0.018600025214254856,
+    "peak_mem_kb": 6.0791015625
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 0,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1221999991685152,
+    "t_canon_ms": 0.02489995677024126,
+    "peak_mem_kb": 8.435546875
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 1,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11209992226213217,
+    "t_canon_ms": 0.027699978090822697,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 2,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11449994053691626,
+    "t_canon_ms": 0.024099950678646564,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 3,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11399993672966957,
+    "t_canon_ms": 0.024399952962994576,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 4,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11249992530792952,
+    "t_canon_ms": 0.025300076231360435,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 5,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.12079998850822449,
+    "t_canon_ms": 0.02489995677024126,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 6,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1210999907925725,
+    "t_canon_ms": 0.024900073185563087,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 7,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11969998013228178,
+    "t_canon_ms": 0.024699955247342587,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 8,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1194999786093831,
+    "t_canon_ms": 0.02519995905458927,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 9,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.12199999764561653,
+    "t_canon_ms": 0.026099965907633305,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 10,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.12439989950507879,
+    "t_canon_ms": 0.02550007775425911,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 11,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.14539994299411774,
+    "t_canon_ms": 0.024300068616867065,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 12,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11319993063807487,
+    "t_canon_ms": 0.02380006480962038,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 13,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11230004020035267,
+    "t_canon_ms": 0.024399952962994576,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 14,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11170003563165665,
+    "t_canon_ms": 0.023799948394298553,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 15,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11260004248470068,
+    "t_canon_ms": 0.023300061002373695,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 16,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11179991997778416,
+    "t_canon_ms": 0.02420006785541773,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 17,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11160003487020731,
+    "t_canon_ms": 0.0241999514400959,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 18,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.112400040961802,
+    "t_canon_ms": 0.025499961338937283,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 19,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11260004248470068,
+    "t_canon_ms": 0.02459995448589325,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 20,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11200003791600466,
+    "t_canon_ms": 0.024699955247342587,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 21,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11229992378503084,
+    "t_canon_ms": 0.02510007470846176,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 22,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11399993672966957,
+    "t_canon_ms": 0.02450007013976574,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 23,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11349993292242289,
+    "t_canon_ms": 0.024300068616867065,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 24,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11699995957314968,
+    "t_canon_ms": 0.024400069378316402,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 25,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11120003182440996,
+    "t_canon_ms": 0.02480007242411375,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 26,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11090002954006195,
+    "t_canon_ms": 0.02489995677024126,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 27,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11110003106296062,
+    "t_canon_ms": 0.024399952962994576,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 28,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11209992226213217,
+    "t_canon_ms": 0.024600070901215076,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 6,
+    "repetition": 29,
+    "n_ops": 29,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.11690007522702217,
+    "t_canon_ms": 0.024499953724443913,
+    "peak_mem_kb": 8.318359375
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 0,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.18750003073364496,
+    "t_canon_ms": 0.0393999507650733,
+    "peak_mem_kb": 13.2265625
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 1,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17200002912431955,
+    "t_canon_ms": 0.03929995000362396,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 2,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17170002683997154,
+    "t_canon_ms": 0.03999995533376932,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 3,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1868000254034996,
+    "t_canon_ms": 0.04229997284710407,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 4,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1892000436782837,
+    "t_canon_ms": 0.03899994771927595,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 5,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17010001465678215,
+    "t_canon_ms": 0.03869994543492794,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 6,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16900000628083944,
+    "t_canon_ms": 0.0385999446734786,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 7,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16799999866634607,
+    "t_canon_ms": 0.03620004281401634,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 8,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17010001465678215,
+    "t_canon_ms": 0.03969995304942131,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 9,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17500005196779966,
+    "t_canon_ms": 0.03899994771927595,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 10,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16990001313388348,
+    "t_canon_ms": 0.03829994238913059,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 11,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16910000704228878,
+    "t_canon_ms": 0.03850006032735109,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 12,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16939989291131496,
+    "t_canon_ms": 0.03870006185024977,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 13,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17809995915740728,
+    "t_canon_ms": 0.039899954572319984,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 14,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17110002227127552,
+    "t_canon_ms": 0.039400067180395126,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 15,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16850000247359276,
+    "t_canon_ms": 0.038100057281553745,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 16,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16689999029040337,
+    "t_canon_ms": 0.03869994543492794,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 17,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1669999910518527,
+    "t_canon_ms": 0.041400082409381866,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 18,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1669999910518527,
+    "t_canon_ms": 0.037899939343333244,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 19,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16789999790489674,
+    "t_canon_ms": 0.03879994619637728,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 20,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1680999994277954,
+    "t_canon_ms": 0.03720005042850971,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 21,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16870000399649143,
+    "t_canon_ms": 0.03879994619637728,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 22,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16729999333620071,
+    "t_canon_ms": 0.040599959902465343,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 23,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1674999948590994,
+    "t_canon_ms": 0.039800070226192474,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 24,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17399992793798447,
+    "t_canon_ms": 0.03930006641894579,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 25,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1708000199869275,
+    "t_canon_ms": 0.04030007403343916,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 26,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16850000247359276,
+    "t_canon_ms": 0.03729993477463722,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 27,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.1680999994277954,
+    "t_canon_ms": 0.0377000542357564,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 28,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.16969989519566298,
+    "t_canon_ms": 0.03800005652010441,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 8,
+    "repetition": 29,
+    "n_ops": 47,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.17110002227127552,
+    "t_canon_ms": 0.03969995304942131,
+    "peak_mem_kb": 12.921875
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 0,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2495000371709466,
+    "t_canon_ms": 0.05679996684193611,
+    "peak_mem_kb": 18.923828125
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 1,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2413000911474228,
+    "t_canon_ms": 0.05589995998889208,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 2,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2631999086588621,
+    "t_canon_ms": 0.05650008097290993,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 3,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2351000439375639,
+    "t_canon_ms": 0.05509995389729738,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 4,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23559993132948875,
+    "t_canon_ms": 0.053900061175227165,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 5,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23529992904514074,
+    "t_canon_ms": 0.056999968364834785,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 6,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23370003327727318,
+    "t_canon_ms": 0.056999968364834785,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 7,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23609993513673544,
+    "t_canon_ms": 0.058699981309473515,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 8,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.26400003116577864,
+    "t_canon_ms": 0.05609996151179075,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 9,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23220002185553312,
+    "t_canon_ms": 0.057600089348852634,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 10,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23150001652538776,
+    "t_canon_ms": 0.055600074119865894,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 11,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2324000233784318,
+    "t_canon_ms": 0.06280001252889633,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 12,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23499992676079273,
+    "t_canon_ms": 0.0564999645575881,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 13,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2346000401303172,
+    "t_canon_ms": 0.055999960750341415,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 14,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23509992752224207,
+    "t_canon_ms": 0.05650008097290993,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 15,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2316000172868371,
+    "t_canon_ms": 0.05559995770454407,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 16,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23060000967234373,
+    "t_canon_ms": 0.060699996538460255,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 17,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23380003403872252,
+    "t_canon_ms": 0.055200071074068546,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 18,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2351000439375639,
+    "t_canon_ms": 0.056999968364834785,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 19,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23419992066919804,
+    "t_canon_ms": 0.05610007792711258,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 20,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23410003632307053,
+    "t_canon_ms": 0.055699958465993404,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 21,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23809995036572218,
+    "t_canon_ms": 0.05630007945001125,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 22,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23470004089176655,
+    "t_canon_ms": 0.05479995161294937,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 23,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23370003327727318,
+    "t_canon_ms": 0.059699988923966885,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 24,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23390003480017185,
+    "t_canon_ms": 0.05639996379613876,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 25,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2324000233784318,
+    "t_canon_ms": 0.056900084018707275,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 26,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2367000561207533,
+    "t_canon_ms": 0.05589995998889208,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 27,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.2463000128045678,
+    "t_canon_ms": 0.06499991286545992,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 28,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23120001424103975,
+    "t_canon_ms": 0.05689996760338545,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 10,
+    "repetition": 29,
+    "n_ops": 69,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.23330003023147583,
+    "t_canon_ms": 0.05450006574392319,
+    "peak_mem_kb": 18.525390625
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 0,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3638999769464135,
+    "t_canon_ms": 0.07660000119358301,
+    "peak_mem_kb": 25.982421875
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 1,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31969998963177204,
+    "t_canon_ms": 0.07850001566112041,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 2,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3189999843016267,
+    "t_canon_ms": 0.07730000652372837,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 3,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31779997516423464,
+    "t_canon_ms": 0.0771000050008297,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 4,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31849998049438,
+    "t_canon_ms": 0.07529999129474163,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 5,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3189999843016267,
+    "t_canon_ms": 0.07660000119358301,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 6,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3171000862494111,
+    "t_canon_ms": 0.07569999434053898,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 7,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31649996526539326,
+    "t_canon_ms": 0.07810001261532307,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 8,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3155000740662217,
+    "t_canon_ms": 0.0795999076217413,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 9,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31479995232075453,
+    "t_canon_ms": 0.076299998909235,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 10,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.314700067974627,
+    "t_canon_ms": 0.07589999586343765,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 11,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.32130000181496143,
+    "t_canon_ms": 0.07960002403706312,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 12,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3174999728798866,
+    "t_canon_ms": 0.07770000956952572,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 13,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3201999934390187,
+    "t_canon_ms": 0.07700000423938036,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 14,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3157999599352479,
+    "t_canon_ms": 0.07800001185387373,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 15,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31759997364133596,
+    "t_canon_ms": 0.07760000880807638,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 16,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3322999691590667,
+    "t_canon_ms": 0.07449998520314693,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 17,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31969998963177204,
+    "t_canon_ms": 0.07599999662488699,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 18,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3258000360801816,
+    "t_canon_ms": 0.07750000804662704,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 19,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31759997364133596,
+    "t_canon_ms": 0.07750000804662704,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 20,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3173999721184373,
+    "t_canon_ms": 0.07890001870691776,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 21,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31669996678829193,
+    "t_canon_ms": 0.08050003089010715,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 22,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.317899975925684,
+    "t_canon_ms": 0.07539999205619097,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 23,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.32029999420046806,
+    "t_canon_ms": 0.07569999434053898,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 24,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.32350001856684685,
+    "t_canon_ms": 0.07969990838319063,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 25,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3217000048607588,
+    "t_canon_ms": 0.07969990838319063,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 26,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3226000117138028,
+    "t_canon_ms": 0.07829989772289991,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 27,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3198999911546707,
+    "t_canon_ms": 0.07870001718401909,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 28,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.31889998354017735,
+    "t_canon_ms": 0.07760000880807638,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 12,
+    "repetition": 29,
+    "n_ops": 95,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.3215000033378601,
+    "t_canon_ms": 0.07469998672604561,
+    "peak_mem_kb": 25.349609375
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 0,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4501000512391329,
+    "t_canon_ms": 0.10489998385310173,
+    "peak_mem_kb": 34.619140625
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 1,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4219000693410635,
+    "t_canon_ms": 0.10269996710121632,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 2,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4115999909117818,
+    "t_canon_ms": 0.10059995111078024,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 3,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.408699968829751,
+    "t_canon_ms": 0.10329997166991234,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 4,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41360000614076853,
+    "t_canon_ms": 0.10289996862411499,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 5,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4132000030949712,
+    "t_canon_ms": 0.10189996100962162,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 6,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4164999118074775,
+    "t_canon_ms": 0.09780004620552063,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 7,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41939993388950825,
+    "t_canon_ms": 0.09640003554522991,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 8,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4184999270364642,
+    "t_canon_ms": 0.09990006219595671,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 9,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.40980009362101555,
+    "t_canon_ms": 0.10459998156875372,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 10,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41369989048689604,
+    "t_canon_ms": 0.10280008427798748,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 11,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.417000032030046,
+    "t_canon_ms": 0.10249996557831764,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 12,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4163000266999006,
+    "t_canon_ms": 0.10279996786266565,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 13,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41610002517700195,
+    "t_canon_ms": 0.10249996557831764,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 14,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4218999529257417,
+    "t_canon_ms": 0.10079995263367891,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 15,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4163000266999006,
+    "t_canon_ms": 0.09959994349628687,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 16,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4168000305071473,
+    "t_canon_ms": 0.10459998156875372,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 17,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41699991561472416,
+    "t_canon_ms": 0.103199970908463,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 18,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.43890008237212896,
+    "t_canon_ms": 0.1050001010298729,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 19,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.417000032030046,
+    "t_canon_ms": 0.14030002057552338,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 20,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4197000525891781,
+    "t_canon_ms": 0.10079995263367891,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 21,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.45819999650120735,
+    "t_canon_ms": 0.10109995491802692,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 22,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41019998025149107,
+    "t_canon_ms": 0.10369997471570969,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 23,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41640002746134996,
+    "t_canon_ms": 0.10249996557831764,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 24,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4124999977648258,
+    "t_canon_ms": 0.103199970908463,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 25,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41800003964453936,
+    "t_canon_ms": 0.10139995720237494,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 26,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.417300034314394,
+    "t_canon_ms": 0.10659999679774046,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 27,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41420001070946455,
+    "t_canon_ms": 0.10320008732378483,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 28,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.41179999243468046,
+    "t_canon_ms": 0.103199970908463,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 14,
+    "repetition": 29,
+    "n_ops": 125,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.4287998890504241,
+    "t_canon_ms": 0.10480009950697422,
+    "peak_mem_kb": 32.861328125
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 0,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5804999964311719,
+    "t_canon_ms": 0.13489997945725918,
+    "peak_mem_kb": 43.568359375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 1,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.546499970369041,
+    "t_canon_ms": 0.1284999307245016,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 2,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.539699918590486,
+    "t_canon_ms": 0.12890005018562078,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 3,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5350999999791384,
+    "t_canon_ms": 0.12880004942417145,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 4,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5416000494733453,
+    "t_canon_ms": 0.12439989950507879,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 5,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5361000075936317,
+    "t_canon_ms": 0.1270999200642109,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 6,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5381000228226185,
+    "t_canon_ms": 0.12419989798218012,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 7,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5388000281527638,
+    "t_canon_ms": 0.13189995661377907,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 8,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5389000289142132,
+    "t_canon_ms": 0.12770004104822874,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 9,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5400000372901559,
+    "t_canon_ms": 0.13129995204508305,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 10,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5361000075936317,
+    "t_canon_ms": 0.12720003724098206,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 11,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5400000372901559,
+    "t_canon_ms": 0.12749992311000824,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 12,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5587999476119876,
+    "t_canon_ms": 0.12770004104822874,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 13,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5352000007405877,
+    "t_canon_ms": 0.13109995052218437,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 14,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5380000220611691,
+    "t_canon_ms": 0.13099994976073503,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 15,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5464000860229135,
+    "t_canon_ms": 0.12959993910044432,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 16,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5373000167310238,
+    "t_canon_ms": 0.12780004180967808,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 17,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5366000114008784,
+    "t_canon_ms": 0.13139995280653238,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 18,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.534999999217689,
+    "t_canon_ms": 0.1281999284401536,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 19,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5399999208748341,
+    "t_canon_ms": 0.12670003343373537,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 20,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5355000030249357,
+    "t_canon_ms": 0.12860004790127277,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 21,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5358000053092837,
+    "t_canon_ms": 0.13319996651262045,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 22,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5361000075936317,
+    "t_canon_ms": 0.13719999697059393,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 23,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5405000410974026,
+    "t_canon_ms": 0.1305999467149377,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 24,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.542100053280592,
+    "t_canon_ms": 0.12809992767870426,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 25,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5399000365287066,
+    "t_canon_ms": 0.13230007607489824,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 26,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5403000395745039,
+    "t_canon_ms": 0.1273000380024314,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 27,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5400000372901559,
+    "t_canon_ms": 0.1370999962091446,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 28,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.5377000197768211,
+    "t_canon_ms": 0.13240007683634758,
+    "peak_mem_kb": 42.021484375
+  },
+  {
+    "n_qubits": 16,
+    "repetition": 29,
+    "n_ops": 159,
+    "n_measures": 1,
+    "t_build_ir_ms": 0.547399977222085,
+    "t_canon_ms": 0.129799940623343,
+    "peak_mem_kb": 42.021484375
+  }
+]

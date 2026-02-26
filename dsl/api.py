@@ -1,7 +1,6 @@
 #api.py
 from .program import Program, current_program, push_block, pop_block
 from .ir import *
-from .compiler import *
 import json
 import re, os
 from datetime import datetime
@@ -134,20 +133,40 @@ def MEASURE(kind, *wires, **kwargs):
         return
     
 
-def DRAW(circ, draw_type="ascii"):
+def DRAW(circ, draw_type="ascii", backend="pennylane"):
     if draw_type not in ("ascii", "diagram"):
         raise ValueError("DRAW 'draw_type' must be 'ascii' or 'diagram'.")
-    if hasattr(circ, 'compile'):
+    if backend not in ("pennylane", "qiskit"):
+        raise ValueError("DRAW 'backend' must be 'pennylane' or 'qiskit'.")
+    if hasattr(circ, "compile") and hasattr(circ, "_compiled"):
         circuit = circ._compiled
         if circuit is None:
-            circ.compile()
+            circ.compile(backend=backend)
             circuit = circ._compiled
     else:
         circuit = circ
-    
+
+    # ---- Qiskit draw path ----
+    if hasattr(circuit, "_qiskit_circuit"):
+        qc = circuit._qiskit_circuit
+        if draw_type == "ascii":
+            print(qc.draw(output="text"))
+            return qc
+        else:
+            try:
+                fig = qc.draw(output="mpl")
+                plt.show()
+                return fig
+            except Exception:
+                # If mpl drawer isn't available, fall back to text
+                print(qc.draw(output="text"))
+                return qc
+
+    # ---- PennyLane draw path ----
     if draw_type == "ascii":
         print(qml.draw(circuit)())
-    elif draw_type == "diagram":
+        return None
+    else:
         fig, ax = qml.draw_mpl(circuit)()
         plt.show()
         return fig

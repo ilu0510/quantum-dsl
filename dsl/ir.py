@@ -1,5 +1,4 @@
 # ir.py
-import pennylane as qml
 class Op:
     def __init__(self, name, wires, params=None, origin=None):
         self.name = name
@@ -13,25 +12,25 @@ class Measure:
         self.wires = None if wires is None else list(wires)
         self.observable = observable
         self.operator = operator
-        self.basis = basis  # NEW: "Z", "X", "Y", "H", "operator-defined", "N/A"
+        self.basis = basis
         self.origin = list(origin) if origin else []
+
+ALLOWED_OPS = {
+    "H","X","Y","Z","SWAP","CNOT","RX","RY","RZ","CZ","CY","CRX","CRY","CRZ","CTRL",
+    "StatePrep","BasisState",
+    "SingleExcitation","DoubleExcitation","HartreeFock",
+}
 
 class IRProgram:
     def __init__(self, width, ops=None, wire_map=None):
         self.width = width
         self.ops = list(ops or [])
-
-        
-        if wire_map is None:
-            self.wire_map = {f"q[{i}]": i for i in range(width)}
-        else:
-            self.wire_map = dict(wire_map)
+        self.wire_map = {f"q[{i}]": i for i in range(width)} if wire_map is None else dict(wire_map)
 
     def canon(self):
-        # Keep your existing name checks, but add wire range checks.
         for op in self.ops:
             if hasattr(op, "name"):
-                if op.name not in PL_NAME_MAP:
+                if op.name not in ALLOWED_OPS:
                     raise NameError(f"Unknown gate {op.name}.")
                 for w in op.wires:
                     if not isinstance(w, int):
@@ -39,7 +38,6 @@ class IRProgram:
                     if not (0 <= w < self.width):
                         raise ValueError(f"Wire {w} out of range for width={self.width}.")
             else:
-                # Measure checks
                 if op.wires is not None:
                     for w in op.wires:
                         if not isinstance(w, int):
@@ -117,6 +115,7 @@ class IRProgram:
         }
 
 #Map
+import pennylane as qml
 PL_NAME_MAP = {
     "H": qml.Hadamard,
     "X": qml.PauliX,
@@ -139,3 +138,5 @@ PL_NAME_MAP = {
     "DoubleExcitation": qml.DoubleExcitation,
     "HartreeFock": None,
 }
+
+
