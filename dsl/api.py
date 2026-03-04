@@ -108,7 +108,16 @@ def MEASURE(kind, *wires, **kwargs):
     if kind == "expval":
         hamiltonian = kwargs.get("hamiltonian")
         if hamiltonian is not None:
-            current_program().append(Measure(kind, None, operator=hamiltonian, basis="operator-defined"))
+            # Expect a backend-neutral PauliExpr (built from obs.X/Y/Z and @/+/*)
+            if not isinstance(hamiltonian, PauliExpr):
+                raise TypeError(
+                    "MEASURE('expval', hamiltonian=...) expects a PauliExpr built from obs.X/Y/Z "
+                    "(e.g., obs.X(0) @ obs.X(1))."
+                )
+            spec = hamiltonian.to_spec(n_qubits=current_program().ir.width)
+            current_program().append(
+                Measure(kind, None, hamiltonian_spec=spec, basis="pauli_sum")
+            )
             return
 
         if not wires or len(wires) != 1:
@@ -390,14 +399,88 @@ class _Gate:
 gate = _Gate()
 
 # --- Observables ---
+# --- Observables (backend-neutral Pauli expressions) ---
+
+class PauliExpr:
+    """
+    Represents a Hamiltonian as a sum of Pauli terms:
+      sum_k coeff_k * (Pauli string on selected wires)
+
+    Internal form:
+      self.terms = list of (coeff: float, ops: dict[int, str])
+      where ops maps wire -> one of {"I","X","Y","Z"}.
+    """
+    def __init__(self, terms=None):
+        self.terms = list(terms or [])  # [(coeff, {wire: 'X'/'Y'/'Z'})]
+
+    @staticmethod
+    def term(pauli: str, wire: int):
+        if pauli not in ("X", "Y", "Z", "I"):
+            raise ValueError(f"Invalid Pauli: {pauli}")
+        if not isinstance(wire, int):
+            raise TypeError("wire must be int")
+        ops = {} if pauli == "I" else {wire: pauli}
+        return PauliExpr([(1.0, ops)])
+
+    def __matmul__(self, other):
+        # Tensor product of single-term expressions (good enough for your current use)
+        if not isinstance(other, PauliExpr):
+            return NotImplemented
+        out_terms = []
+        for c1, ops1 in self.terms:
+            for c2, ops2 in other.terms:
+                merged = dict(ops1)
+                for w, p in ops2.items():
+                    if w in merged and merged[w] != p:
+                        raise ValueError(
+                            f"Pauli conflict on wire {w}: {merged[w]} vs {p}. "
+                            "If you want multiplication on same wire, you'd need a different representation."
+                        )
+                    merged[w] = p
+                out_terms.append((c1 * c2, merged))
+        return PauliExpr(out_terms)
+
+    def __add__(self, other):
+        if not isinstance(other, PauliExpr):
+            return NotImplemented
+        return PauliExpr(self.terms + other.terms)
+
+    def __radd__(self, other):
+        if other == 0:
+            return self
+        return self.__add__(other)
+
+    def __mul__(self, scalar):
+        if not isinstance(scalar, (int, float, np.number)):
+            return NotImplemented
+        return PauliExpr([(float(scalar) * c, dict(ops)) for c, ops in self.terms])
+
+    def __rmul__(self, scalar):
+        return self.__mul__(scalar)
+
+    def to_spec(self, n_qubits: int):
+        """
+        Convert to JSON-safe spec:
+          {"type":"pauli_sum","n_qubits":N,"terms":[{"coeff":c,"ops":{"0":"X","1":"Z"}}...]}
+        """
+        if not isinstance(n_qubits, int) or n_qubits <= 0:
+            raise ValueError("n_qubits must be a positive int")
+        terms = []
+        for coeff, ops in self.terms:
+            # store wires as strings for JSON friendliness
+            terms.append({
+                "coeff": float(coeff),
+                "ops": {str(int(w)): str(p) for w, p in ops.items()}
+            })
+        return {"type": "pauli_sum", "n_qubits": int(n_qubits), "terms": terms}
+
+
 class _Obs:
-    def X(self, w): return qml.PauliX(w)
-    def Y(self, w): return qml.PauliY(w)
-    def Z(self, w): return qml.PauliZ(w)
-    def H(self, w): return qml.Hadamard(w)
+    def X(self, w): return PauliExpr.term("X", w)
+    def Y(self, w): return PauliExpr.term("Y", w)
+    def Z(self, w): return PauliExpr.term("Z", w)
 
 obs = _Obs()
-
 
 # ---BLOCKS---
 

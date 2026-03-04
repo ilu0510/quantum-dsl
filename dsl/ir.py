@@ -7,11 +7,19 @@ class Op:
         self.origin = list(origin) if origin else []
 
 class Measure:
-    def __init__(self, kind, wires=None, observable=None, operator=None, basis=None, origin=None):
+    def __init__(
+        self,
+        kind,
+        wires=None,
+        observable=None,
+        hamiltonian_spec=None,   
+        basis=None,
+        origin=None
+    ):
         self.kind = kind
         self.wires = None if wires is None else list(wires)
         self.observable = observable
-        self.operator = operator
+        self.hamiltonian_spec = hamiltonian_spec
         self.basis = basis
         self.origin = list(origin) if origin else []
 
@@ -76,7 +84,7 @@ class IRProgram:
                     "wires": node.wires,
                     "basis": node.basis,
                     "observable": node.observable,
-                    "has_operator": node.operator is not None,
+                    "has_hamiltonian": node.hamiltonian_spec is not None,
                     "origin": node.origin,
                 })
 
@@ -88,10 +96,10 @@ class IRProgram:
 
                 # Observable intent = anything expval-related
                 if node.kind == "expval":
-                    if node.operator is not None:
+                    if node.hamiltonian_spec is not None:
                         obs_intent.append({
-                            "type": "Hamiltonian",
-                            "summary": str(node.operator),
+                            "type": "Hamiltonian(pauli_sum)",
+                            "summary": str(node.hamiltonian_spec),
                             "wires": node.wires,
                         })
                         params.append({
@@ -114,29 +122,6 @@ class IRProgram:
             "Observable intent": obs_intent,
         }
 
-#Map
-import pennylane as qml
-PL_NAME_MAP = {
-    "H": qml.Hadamard,
-    "X": qml.PauliX,
-    "Y": qml.PauliY,
-    "Z": qml.PauliZ,
-    "SWAP": qml.SWAP,
-    "CNOT": qml.CNOT,
-    "RX": qml.RX,
-    "RY": qml.RY,
-    "RZ": qml.RZ,
-    "CZ": qml.CZ,
-    "CY": qml.CY,
-    "CRX": qml.CRX, 
-    "CRY": qml.CRY,
-    "CRZ": qml.CRZ,
-    "CTRL": None,
-    "StatePrep": qml.StatePrep,
-    "BasisState": qml.BasisState,
-    "SingleExcitation": qml.SingleExcitation,
-    "DoubleExcitation": qml.DoubleExcitation,
-    "HartreeFock": None,
-}
+
 
 
