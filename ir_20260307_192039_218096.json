@@ -1,0 +1,137 @@
+{
+  "Circuit width": 3,
+  "Wire map": {
+    "q[0]": 0,
+    "q[1]": 1,
+    "q[2]": 2
+  },
+  "Ordered ops": [
+    {
+      "index": 1,
+      "type": "op",
+      "name": "StatePrep",
+      "wires": [
+        0
+      ],
+      "params": [
+        [
+          0.7071067811865475,
+          0.7071067811865475
+        ]
+      ],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 2,
+      "type": "op",
+      "name": "H",
+      "wires": [
+        1
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 3,
+      "type": "op",
+      "name": "CNOT",
+      "wires": [
+        1,
+        2
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 4,
+      "type": "op",
+      "name": "CNOT",
+      "wires": [
+        0,
+        1
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 5,
+      "type": "op",
+      "name": "H",
+      "wires": [
+        0
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 6,
+      "type": "op",
+      "name": "CNOT",
+      "wires": [
+        1,
+        2
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 7,
+      "type": "op",
+      "name": "CZ",
+      "wires": [
+        0,
+        2
+      ],
+      "params": [],
+      "origin": [
+        "teleport"
+      ]
+    },
+    {
+      "index": 8,
+      "type": "measure",
+      "kind": "density matrix",
+      "wires": [
+        2
+      ],
+      "basis": "N/A",
+      "observable": null,
+      "has_hamiltonian": false,
+      "origin": []
+    }
+  ],
+  "Parameters": [
+    {
+      "index": 1,
+      "name": "StatePrep",
+      "params": [
+        [
+          0.7071067811865475,
+          0.7071067811865475
+        ]
+      ]
+    }
+  ],
+  "Measurement intent": [
+    {
+      "kind": "density matrix",
+      "wires": [
+        2
+      ],
+      "basis": "N/A"
+    }
+  ],
+  "Observable intent": []
+}

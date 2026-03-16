@@ -1,11 +1,9 @@
-#Quantum Teleportation
+# #Quantum Teleportation
 
-# ---PennyLane---
+# # ---PennyLane---
 
 import pennylane as qml
 import numpy as np
-
-
 def teleport(state):
     qml.StatePrep(state, wires=[0])
     qml.Hadamard(wires=1)
@@ -14,20 +12,37 @@ def teleport(state):
     qml.Hadamard(wires=0)
     qml.CNOT(wires=[1, 2])
     qml.CZ(wires=[0, 2])
-
 state_to_teleport = np.array([1 / np.sqrt(2), 1 / np.sqrt(2)])
-
 dev = qml.device("default.qubit", wires=3)
-
 @qml.qnode(dev)
 def circuit():
     teleport(state_to_teleport)
     return qml.density_matrix(2)
-
 rho = circuit()
 print(rho)
 
+#Qiskit
 
+import numpy as np
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import DensityMatrix, partial_trace
+def teleport(state):
+    qc = QuantumCircuit(3)
+    qc.initialize(state, 0)
+    qc.h(1)
+    qc.cx(1, 2)
+    qc.cx(0, 1)
+    qc.h(0)
+    qc.cx(1, 2)
+    qc.cz(0, 2)
+    return qc
+state_to_teleport = np.array([1 / np.sqrt(2), 1 / np.sqrt(2)])
+def circuit():
+    qc = teleport(state_to_teleport)
+    rho = partial_trace(DensityMatrix(qc), [0, 1])
+    return rho.data
+rho = circuit()
+print(rho)
 
 
 
@@ -35,7 +50,6 @@ print(rho)
 
 from dsl import *
 import numpy as np
-
 @BLOCK("teleport")
 def teleport(state):
     STATE_PREP(state, 0)
@@ -43,17 +57,14 @@ def teleport(state):
     ENTANGLE(0,1)
     SUPERPOSE(0)
     ENTANGLE(1,2)
-    gate.CZ([0,2])  
-    
+    gate.CZ([0,2])   
 state_to_teleport = np.array([1/np.sqrt(2), 1/np.sqrt(2)])
-
 with PREPARE(3) as p:
     USE("teleport", state=state_to_teleport)
     MEASURE("density matrix", 2)
-
 print(p())
 
-
+INSPECT_IR(p)
 
 
 
